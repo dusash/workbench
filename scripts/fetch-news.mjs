@@ -337,6 +337,8 @@ ${list}
 }
 
 /** 依次尝试 GitHub Models → crosery → 放弃 */
+const aiErrors = [];
+
 async function callAI(section, items) {
   const providers = [
     { name: 'github-models', fn: callGithubModels },
@@ -351,6 +353,7 @@ async function callAI(section, items) {
       }
     } catch (e) {
       log(`AI ${p.name} 失败：${e.message}`);
+      aiErrors.push(`${p.name}: ${String(e.message).slice(0, 90)}`);
     }
   }
   return null;
@@ -437,9 +440,19 @@ function parseAIJson(raw, items) {
   return out;
 }
 
-/** 降级：不调 AI，直接给标题+链接 */
+/** 降级：不调 AI，按关键词粗筛后再取前几条（总比直接取前 N 条强） */
+const FALLBACK_KW = {
+  ai: /(ai\b|artificial intelligence|llm|openai|anthropic|deepmind|nvidia|gpt|gemini|claude|agent|robot|model)/i,
+  tech: /(breakthrough|discover|researcher|scientist|first-ever|novel|unprecedented|quantum|fusion|chip|demonstrat|prove|achiev)/i,
+  us: /(federal reserve|fed\b|s&p|nasdaq|dow jones|wall street|inflation|\bcpi\b|treasury|rate cut|rate hike|earnings|gdp|jobs report|stocks?|market)/i,
+  world: /(war|election|sanction|treaty|summit|conflict|invasion|policy|government|parliament|president|minister|tariff)/i,
+};
+
 function fallbackPick(section, items) {
-  return items.slice(0, section.want).map((it) => ({
+  const kw = FALLBACK_KW[section.key];
+  const hit = kw ? items.filter((it) => kw.test(it.title + ' ' + (it.desc || ''))) : [];
+  const pool = hit.length >= section.want ? hit : items;
+  return pool.slice(0, section.want).map((it) => ({
     title: it.title,
     url: it.url,
     source: it.source,
@@ -521,6 +534,7 @@ async function main() {
   const days = [...map.values()].sort((a, b) => b.date.localeCompare(a.date)).slice(0, KEEP_DAYS);
 
   const status = aiOk >= 2 ? 'ok' : aiOk > 0 ? 'partial' : 'fallback';
+  if (aiOk < 4 && aiErrors.length) notes.push(...aiErrors.slice(0, 4));
   const payload = {
     version: 1,
     status,
