@@ -2,30 +2,32 @@
   "version": 1,
   "status": "ok",
   "aiSections": 4,
-  "generatedAt": "2026-10-26T04:35:44.367Z",
-  "notes": [],
+  "generatedAt": "2026-10-26T08:35:51.016Z",
+  "notes": [
+    "源失败：BBC World（fetch failed）"
+  ],
   "days": [
     {
       "date": "2026-10-26",
-      "generatedAt": "2026-10-26T04:35:44.366Z",
+      "generatedAt": "2026-10-26T08:35:51.014Z",
       "quote": {
-        "updated": "2026-10-23T21:15:59.000Z",
-        "note": "",
-        "source": "yahoo",
+        "updated": "2026-10-23 17:15:59",
+        "note": "美东时间",
+        "source": "tencent",
         "items": [
           {
             "name": "纳斯达克",
             "symbol": "IXIC",
             "price": 25955.34,
-            "change": -184.69,
-            "pct": -0.71
+            "change": -53.52,
+            "pct": -0.21
           },
           {
             "name": "标普500",
-            "symbol": "GSPC",
+            "symbol": "INX",
             "price": 7623.68,
-            "change": -35.76,
-            "pct": -0.47
+            "change": -39.75,
+            "pct": -0.52
           }
         ]
       },
@@ -39,25 +41,25 @@
               "title": "Nvidia open-sources Flora to make robot video labeling 125x cheaper than GPT-6 Astra",
               "url": "https://the-decoder.com/nvidia-open-sources-flora-to-make-robot-video-labeling-125x-cheaper-than-gpt-6-astra/",
               "source": "The Decoder",
-              "summary": "英伟达开源机器人视频标注数据引擎Flora，成本比GPT-6 Astra低约125倍。"
+              "summary": "英伟达开源了一个名为 Flora 的数据引擎，用于给机器人视频做标注。据 The Decoder 报道，用 Flora 标注一小时机器人视频的成本是 72 美分，而使用 GPT-6 Astra 需要 88 美元，前者约为后者的 1/125，同时在质量评分上略高。Flora 建立在三个经过微调的 Qwen3.5 模型之上，在识别机器人动作错误方面比同类方案更可靠，但在描述准确性上有时不足。背景上，机器人模型训练依赖大量带标注的视频数据，人工标注成本高，用通用大模型标注又太贵，这长期是训练流程中的瓶颈。英伟达此前在机器人和仿真领域持续投入，这次把标注工具开源，是其布局机器人产业链的一环。值得关注的地方在于，标注成本下降两个数量级会直接影响机器人模型训练的经济性；而开源工具链被更多团队采用后，也可能进一步绑定英伟达的硬件生态。"
+            },
+            {
+              "title": "Anthropic co-founder Jack Clark moves his prediction for self-improving AI forward to 2027",
+              "url": "https://the-decoder.com/anthropic-co-founder-jack-clark-moves-his-prediction-for-self-improving-ai-forward-to-2027/",
+              "source": "The Decoder",
+              "summary": "Anthropic 联合创始人 Jack Clark 把自己对「自我改进型 AI」出现时间的预测提前到了 2027 年。触发这次调整的是 P-Zero Research 发布的一个新基准，该基准用来衡量 AI 模型自主设计和评估实验的能力，测试结果显示相关能力提升速度很快。背景上，自我改进 AI 指模型能够参与改进自身，通常被视为通向更强 AI 的关键节点，此前业界给出的时间表普遍更靠后。需要说明的是，2027 年这个时间点是 Jack Clark 的个人判断，依据是基准分数的变化趋势，而非已经发生的事实。值得关注的是，如果模型在「设计实验、评估实验」这类科研环节上的能力持续提升，AI 研发的节奏、算力需求以及安全与监管讨论都可能随之变化。"
+            },
+            {
+              "title": "OpenAI offers discounts up to 90 percent to poach Anthropic's biggest customers",
+              "url": "https://the-decoder.com/openai-offers-discounts-up-to-90-percent-to-poach-anthropics-biggest-customers/",
+              "source": "The Decoder",
+              "summary": "据 The Decoder 报道，OpenAI 正以最高 90% 的折扣争取 Anthropic 的大客户。Rippling、Replit、DataCamp 等公司表示，切换到 OpenAI 之后 AI 成本最多下降了 90%。与此同时，Anthropic 的增长出现放缓。背景上，大模型 API 市场的价格竞争持续加剧，除 OpenAI 与 Anthropic 之外，中国的 DeepSeek 等厂商也在压低价格；当各家模型能力差距缩小后，企业客户对价格变得更加敏感。值得关注的是，用大幅折扣换取市场份额意味着 OpenAI 在牺牲自身利润率，这种打法能否持续取决于其成本结构。对使用 API 的开发者和小公司来说，短期内议价空间变大、成本下降；长期价格走向则取决于竞争格局如何演变。"
             },
             {
               "title": "Anthropic says one AI agent beats many subagents now that models can handle complexity alone",
               "url": "https://the-decoder.com/anthropic-says-one-ai-agent-beats-many-subagents-now-that-models-can-handle-complexity-alone/",
               "source": "The Decoder",
-              "summary": "Anthropic称单智能体架构优于多子智能体，速度约快一倍，并发布迁移工具。"
-            },
-            {
-              "title": "OpenMobile-2 proves open-source smartphone agents can rival proprietary models",
-              "url": "https://the-decoder.com/openmobile-2-proves-open-source-smartphone-agents-can-rival-proprietary-models/",
-              "source": "The Decoder",
-              "summary": "开源项目OpenMobile-2用110多个应用训练，手机智能体表现追平专有模型。"
-            },
-            {
-              "title": "Grok releases the first seven minutes of its AI-generated ‘Odyssey’",
-              "url": "https://techcrunch.com/2026/10/25/grok-releases-the-first-seven-minutes-of-its-ai-generated-odyssey/",
-              "source": "TechCrunch AI",
-              "summary": "Grok发布其AI生成影片《Odyssey》的前七分钟片段。"
+              "summary": "Anthropic 提出，随着模型自身处理复杂任务的能力提升，企业应重新评估是否还需要把任务拆给多个子智能体，改为用一个智能体按需加载上下文。在一次架构对比中，单智能体方案的运行速度约为多子智能体方案的两倍。Anthropic 还在 GitHub 上发布了迁移工具包，帮助团队完成改造。背景上，多智能体架构此前被广泛采用，思路是把复杂任务拆成多个子任务分给不同智能体处理，但会带来通信开销和上下文重复的问题。值得关注的是，这是对当前主流工程实践的一次修正：如果单智能体在速度和效果上都不吃亏，企业可以简化系统、降低调用成本。对正在搭建 AI 应用的团队来说，架构选型需要跟着模型能力的变化重新评估。"
             }
           ]
         },
@@ -69,13 +71,7 @@
               "title": "Moderna and Merck say their mRNA cancer vaccine cut death, recurrence by 42%",
               "url": "https://arstechnica.com/health/2026/10/personalized-mrna-cancer-vaccine-cut-melanoma-death-recurrence-by-42/",
               "source": "Ars Technica",
-              "summary": "Moderna与默克称其mRNA癌症疫苗将死亡或复发风险降低42%。"
-            },
-            {
-              "title": "A 1,000-mile cloud on Mars may reveal physics never seen in nature",
-              "url": "https://arstechnica.com/science/2026/10/a-1000-mile-cloud-on-mars-may-reveal-physics-never-seen-in-nature/",
-              "source": "Ars Technica",
-              "summary": "新模型提出火星可能存在形成冰的物理过程，此前从未直接观测到。"
+              "summary": "Moderna与默克公布了一项mRNA癌症疫苗试验的顶线结果：死亡与复发风险降低42%。两家公司此前已报告该试验成功，此次是首次给出具体数字。mRNA癌症疫苗的思路，是把mRNA技术用于治疗性肿瘤免疫，而不是此前用于传染病的预防性疫苗。目前公开的只有顶线结果，摘要中没有给出受试人数、癌种、随访时长和对照组设置，也没有说明是否达到统计学显著，这些通常要等完整数据在学术会议或期刊上披露后才能判断。值得关注的地方在于，这是mRNA技术用于肿瘤治疗的一次关键临床读数；如果后续分析和更大规模试验能够支持这一结果，它会直接影响其他mRNA肿瘤项目的推进节奏和资本判断。"
             }
           ]
         },
@@ -87,19 +83,19 @@
               "title": "More than a third of S&P 500 companies are about to report earnings as market confidence cracks",
               "url": "https://www.marketwatch.com/story/more-than-a-third-of-s-p-500-companies-are-about-to-report-earnings-as-market-confidence-cracks-03b7a8f1?mod=mw_rss_topstories",
               "source": "MarketWatch",
-              "summary": "超三分之一标普500公司即将发布财报，市场信心出现裂痕。"
+              "summary": "MarketWatch 报道，标普500指数中超过三分之一的公司即将集中发布财报。一位策略师表示，在市场情绪谨慎甚至偏负面的情况下，这可能是「棘手的一周」，报道称市场信心正在出现裂痕。 背景：超过三分之一的标普500成分股在同一时间段披露业绩，意味着本周是本轮财报季信息最密集的阶段之一。此前市场情绪已经转向谨慎，投资者对企业盈利能否支撑当前估值存在疑虑。 为什么值得关注：财报是检验股价与盈利是否匹配的直接依据。当超过三分之一的权重公司同时交卷，任何一家大型公司的业绩或指引不及预期，都可能放大指数波动。对关注美股的读者来说，这一周的关键不是某一家公司，而是整体盈利趋势能否稳住市场信心。"
             },
             {
-              "title": "Berkshire shares shake the Buffett blues with new all-time highs",
-              "url": "https://www.cnbc.com/2026/10/24/berkshire-record-high-without-buffett.html",
+              "title": "SpaceX closes $40 billion debt deal for AI chips, Elon Musk says",
+              "url": "https://www.cnbc.com/2026/10/26/spacex-closes-40-billion-debt-deal-for-ai-chips-elon-musk-.html",
               "source": "CNBC",
-              "summary": "伯克希尔股价创历史新高，抹平巴菲特宣布卸任CEO后的全部跌幅。"
+              "summary": "CNBC 报道，埃隆·马斯克在 X 平台上表示，SpaceX 已完成 400 亿美元的债务融资，用于购买 GPU。MarketWatch 的报道补充称，SpaceX 正在快速扩张一项 AI 业务，对外出租先进芯片的算力。 背景：这是 SpaceX 在火箭发射和卫星互联网之外，向 AI 算力领域延伸的动作。400 亿美元的债务规模对应的是购买 GPU 这一明确用途，说明公司把算力当作一项需要重资产投入的业务来做。 为什么值得关注：AI 算力需求目前是美股科技板块的核心叙事之一，芯片供应和算力租赁的景气度直接影响相关公司的业绩预期。一家非上市航天公司以债务方式投入如此规模的资金采购 GPU，反映的是算力仍然供不应求、且参与者愿意加杠杆入场。对关注 AI 产业链的读者来说，这是观察算力需求端的一个具体信号。"
             },
             {
-              "title": "Nvidia's role as AI financier faces first big test as neoclouds take market hit",
-              "url": "https://www.cnbc.com/2026/10/24/nvidias-role-as-ai-financier-faces-first-big-test-as-neoclouds-take-market-hit.html",
+              "title": "More pain may be coming for the AI trade. Why I’m not giving up on it",
+              "url": "https://www.cnbc.com/investingclub/2026/10/25/jim-cramer-ai-trade-nvidia-coreweave.html",
               "source": "CNBC",
-              "summary": "英伟达作为AI融资方的角色迎来首次重大考验，新兴云厂商股价受挫。"
+              "summary": "CNBC 刊出 Jim Cramer 为 Investing Club 订阅者撰写的周日专栏。他在文中解释了 AI 交易为什么出现裂痕，以及自己打算如何应对，并明确表示不会放弃这条主线。 背景：AI 相关交易在此前一段时间是美股的重要支撑力量，Cramer 的这篇专栏是在该交易出现松动迹象的背景下写的。他面向的是订阅其投资俱乐部的个人投资者，文章同时给出了对现状的判断和应对方式。 为什么值得关注：当市场开始公开讨论「AI 交易是否已经破裂」时，通常意味着资金对这条主线的分歧在加大。Cramer 作为长期看多科技股的评论者，其态度变化会被部分投资者当作情绪参考。对关注 AI 板块的读者来说，值得留意的不是某一个人的结论，而是分歧本身——它往往对应着波动放大的阶段。"
             }
           ]
         },
@@ -108,10 +104,10 @@
           "name": "时政",
           "items": [
             {
-              "title": "Brazil's Lula wins historic presidential election; Bolsonaro reportedly refuses to concede",
-              "url": "https://www.cnbc.com/2026/10/26/brazil-lula-win-presidential-election-runoff-vote.html",
+              "title": "What next for France as riots rattle markets? Three questions facing investors ahead of more protests",
+              "url": "https://www.cnbc.com/2026/10/24/france-riots-paris-unrest-debt-budget.html",
               "source": "CNBC World",
-              "summary": "巴西左翼候选人卢拉赢得总统决选，博索纳罗据报拒绝承认败选"
+              "summary": "法国因不平等和生活成本上涨引发的抗议进入第二个周末，据估计全国约41万人参与，多个城市发生冲突，警方出动以防重现上周的暴力。市场层面，骚乱已把法国国债收益率推至24年高位，投资者开始评估预算、增长与各行业风险，并准备迎接更多抗议；穆迪本周将法国主权评级维持在Aa3。抗议不只发生在法国，米兰、罗马、马德里、里斯本等地也出现游行。这条线索值得关注的原因是：国债收益率快速上行意味着市场在重新定价法国的财政可信度，而融资成本上升会传导到银行、消费等板块，也会影响欧元资产对全球资金的吸引力。后续需要观察抗议规模是否继续扩大，以及评级机构和投资者对财政整固路径的判断。"
             }
           ]
         }
