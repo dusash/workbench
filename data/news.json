@@ -2,32 +2,30 @@
   "version": 1,
   "status": "fallback",
   "aiSections": 0,
-  "generatedAt": "2026-10-26T01:41:49.677Z",
-  "notes": [
-    "源失败：BBC World（fetch failed）"
-  ],
+  "generatedAt": "2026-10-26T01:50:39.340Z",
+  "notes": [],
   "days": [
     {
       "date": "2026-10-26",
-      "generatedAt": "2026-10-26T01:41:49.676Z",
+      "generatedAt": "2026-10-26T01:50:39.340Z",
       "quote": {
-        "updated": "2026-10-23 17:15:59",
-        "note": "美东时间",
-        "source": "tencent",
+        "updated": "2026-10-23T21:15:59.000Z",
+        "note": "",
+        "source": "yahoo",
         "items": [
           {
             "name": "纳斯达克",
             "symbol": "IXIC",
             "price": 25955.34,
-            "change": -53.52,
-            "pct": -0.21
+            "change": -184.69,
+            "pct": -0.71
           },
           {
             "name": "标普500",
-            "symbol": "INX",
+            "symbol": "GSPC",
             "price": 7623.68,
-            "change": -39.75,
-            "pct": -0.52
+            "change": -35.76,
+            "pct": -0.47
           }
         ]
       },
