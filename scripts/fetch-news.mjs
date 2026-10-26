@@ -336,67 +336,23 @@ ${list}
 {"picked":[{"i":索引数字,"summary":"一句话中文摘要"}]}`;
 }
 
-/** 依次尝试 GitHub Models → crosery → 放弃 */
+/** 调用 crosery 中转（GitHub Models 已于 2026-07-30 退役，不再尝试） */
 const aiErrors = [];
 
 async function callAI(section, items) {
-  const providers = [
-    { name: 'github-models', fn: callGithubModels },
-    { name: 'crosery', fn: callCrosery },
-  ];
-  for (const p of providers) {
-    try {
-      const out = await withTimeout(() => p.fn(section, items), 60000, `AI/${p.name}`);
-      if (out) {
-        log(`AI 使用 ${p.name} 完成「${section.name}」`);
-        return { ...out, provider: p.name };
-      }
-    } catch (e) {
-      const cause = e && e.cause ? ` [${e.cause.code || e.cause.message || String(e.cause)}]` : '';
-      const msg = `${p.name}: ${String(e.message).slice(0, 80)}${cause}`;
-      log(`AI ${p.name} 失败：${msg}`);
-      aiErrors.push(msg);
+  try {
+    const out = await withTimeout(() => callCrosery(section, items), 90000, 'AI/crosery');
+    if (out) {
+      log(`AI 完成「${section.name}」`);
+      return { picked: out, provider: 'crosery' };
     }
+  } catch (e) {
+    const cause = e && e.cause ? ` [${e.cause.code || e.cause.message || String(e.cause)}]` : '';
+    const msg = `crosery: ${String(e.message).slice(0, 80)}${cause}`;
+    log(`AI 失败：${msg}`);
+    aiErrors.push(msg);
   }
   return null;
-}
-
-const GH_MODEL_CANDIDATES = [
-  { url: 'https://models.github.ai/inference/chat/completions', model: 'openai/gpt-4o-mini' },
-  { url: 'https://models.github.ai/inference/chat/completions', model: 'gpt-4o-mini' },
-  { url: 'https://models.inference.ai.azure.com/chat/completions', model: 'gpt-4o-mini' },
-];
-
-async function callGithubModels(section, items) {
-  const token = process.env.GITHUB_TOKEN;
-  if (!token) throw new Error('无 GITHUB_TOKEN');
-  let lastErr;
-  for (const c of GH_MODEL_CANDIDATES) {
-    try {
-      const res = await fetch(c.url, {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: c.model,
-          temperature: 0.2,
-          max_tokens: 900,
-          messages: [
-            { role: 'system', content: SYSTEM_PROMPT },
-            { role: 'user', content: buildUserPrompt(section, items) },
-          ],
-        }),
-      });
-      if (!res.ok) {
-        lastErr = new Error(`${c.model} HTTP ${res.status} ${(await res.text()).slice(0, 120)}`);
-        continue;
-      }
-      const j = await res.json();
-      return parseAIJson(j?.choices?.[0]?.message?.content, items);
-    } catch (e) {
-      lastErr = e;
-    }
-  }
-  throw lastErr || new Error('GitHub Models 全部失败');
 }
 
 async function callCrosery(section, items) {
@@ -409,7 +365,7 @@ async function callCrosery(section, items) {
     body: JSON.stringify({
       model: process.env.CROSERY_MODEL || 'deepseek-v4.1-flash',
       temperature: 0.2,
-      max_tokens: 900,
+      max_tokens: 2000,
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
         { role: 'user', content: buildUserPrompt(section, items) },
@@ -417,8 +373,14 @@ async function callCrosery(section, items) {
     }),
   });
   if (!res.ok) throw new Error(`HTTP ${res.status} ${(await res.text()).slice(0, 120)}`);
-  const j = await res.json();
-  return parseAIJson(j?.choices?.[0]?.message?.content, items);
+  const raw = await res.json();
+  // 该中转站把结果包在 data 里，和标准 OpenAI 格式不同
+  const j = raw && raw.data ? raw.data : raw;
+  const choice = j?.choices?.[0];
+  if (!choice) throw new Error('返回无 choices: ' + JSON.stringify(raw).slice(0, 100));
+  const content = choice.message?.content;
+  if (!content && choice.finish_reason === 'length') throw new Error('输出被截断（max_tokens 不够）');
+  return parseAIJson(content, items);
 }
 
 function parseAIJson(raw, items) {
