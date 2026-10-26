@@ -237,8 +237,11 @@ select.inp{
 .agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:11px}
 .acard{
   background:var(--card);border:2px solid var(--ink);box-shadow:3px 3px 0 0 var(--shadow);
-  padding:11px 12px;position:relative;
+  padding:11px 12px;position:relative;cursor:pointer;
+  transition:background-color .18s ease;
 }
+.acard:hover{background:var(--band)}
+.acard:active{transform:translate(3px,3px);box-shadow:none;transition:transform 0s}
 .acard .ty{font-family:var(--mono);font-size:12px;color:var(--orange-d);letter-spacing:1px;margin-bottom:4px}
 .acard .tt{font-size:12px;margin-bottom:5px;padding-right:18px;word-break:break-word}
 .acard .bd{font-size:12px;color:var(--ink2);line-height:1.7;word-break:break-word;
@@ -246,11 +249,41 @@ select.inp{
 .acard .st{position:absolute;top:8px;right:8px;width:18px;height:18px;color:var(--line2)}
 .acard .st.on{color:var(--orange)}
 .acard .st .ic{width:18px;height:18px;display:block}
-.acard .rm{position:absolute;bottom:6px;right:6px;color:var(--ink3);opacity:0;transition:opacity .18s}
+.acard .rm{position:absolute;top:8px;right:32px;width:18px;height:18px;
+  color:var(--ink3);opacity:.4;transition:opacity .18s ease,color .18s ease;background:none;border:0;cursor:pointer}
 .acard:hover .rm{opacity:1}
+.acard .rm:hover{color:var(--brick)}
 .acard .rm .ic{width:16px;height:16px;display:block}
 .tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
 .tags span{font-size:12px;padding:0 5px;background:var(--band);color:var(--ink2);font-family:var(--mono)}
+
+.ddl-add{
+  width:100%;padding:9px 12px;margin-top:2px;
+  background:none;border:2px dashed var(--line2);color:var(--ink3);
+  font-family:inherit;font-size:12px;text-align:center;cursor:pointer;
+  transition:border-color .18s ease,color .18s ease,background-color .18s ease;
+}
+.ddl-add:hover{border-color:var(--orange);color:var(--orange-d);background:var(--card)}
+
+.pcard .del{
+  position:absolute;top:4px;right:4px;width:20px;height:20px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink3);opacity:.4;transition:opacity .18s ease,color .18s ease;
+  font-size:15px;line-height:1;background:none;border:0;cursor:pointer;
+}
+.pcard:hover .del{opacity:1}
+.pcard .del:hover{color:var(--brick)}
+
+.skillbox .h .ops{display:flex;gap:6px;flex:none}
+
+.acard .link{
+  display:inline-block;margin-top:8px;font-family:var(--mono);font-size:12px;
+  color:var(--orange-d);text-decoration:none;
+  border-bottom:1px solid var(--line2);padding-bottom:1px;
+  transition:border-color .18s ease,color .18s ease;
+  word-break:break-all;
+}
+.acard .link:hover{border-bottom-color:var(--orange);color:var(--brick)}
 
 .heat{display:grid;grid-template-columns:repeat(13,18px);gap:4px;margin:12px 0 6px}
 .heat i{width:18px;height:18px;background:var(--band);display:block;border:1px solid var(--line)}
@@ -262,7 +295,7 @@ select.inp{
 .logline{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);align-items:flex-start}
 .logline .d{font-family:var(--mono);font-size:12px;color:var(--ink3);flex:none;width:76px;padding-top:2px}
 .logline .x{flex:1;line-height:1.75;word-break:break-word}
-.logline .rm{color:var(--ink3);flex:none;opacity:0;transition:opacity .18s}
+.logline .rm{color:var(--ink3);flex:none;opacity:.45;transition:opacity .18s,color .18s}
 .logline:hover .rm{opacity:1}
 .logline .rm .ic{width:16px;height:16px;display:block}
 .skillbox{
@@ -602,7 +635,7 @@ function seed(){
       {id:'d_sched',title:'课程表 App 原型',lane:'study',date:addD(11),type:'hard',projectId:'p_sched',done:false}
     ],
     arsenal:[
-      {id:'a_folia',type:'repo',title:'folia',body:'本地音乐播放器，界面好看，适合桌面常驻。',url:'https://github.com/',tags:['音乐','桌面'],star:true,created:'2026-10-15'},
+      {id:'a_folia',type:'repo',title:'folia',body:'本地音乐播放器，界面好看，适合桌面常驻。',url:'',tags:['音乐','桌面'],star:true,created:'2026-10-15'},
       {id:'a_base44',type:'repo',title:'base44',body:'以色列程序员做的 AI 建站，自然语言生成整站。',url:'',tags:['AI','建站'],star:false,created:'2026-10-17'},
       {id:'a_ark',type:'repo',title:'Ark Pixel Font',body:'本工作台在用的中文像素字体，zh_hans 单包 553KB。',url:'https://github.com/TakWolf/ark-pixel-font',tags:['字体','像素'],star:true,created:ymd()}
     ],
@@ -751,8 +784,9 @@ function renderDesk(){
   }).join('');
 
   const up=DB.ddls.filter(x=>!x.done).sort((a,b)=>days(a.date)-days(b.date)).slice(0,3);
-  document.getElementById('nextup').innerHTML=up.length?up.map(ddlRow).join(''):
-    '<div class="empty">还没有期限。点右上角「加期限」写一条。</div>';
+  document.getElementById('nextup').innerHTML=
+    (up.length?up.map(ddlRow).join(''):'<div class="empty">还没有期限。点下面加一条。</div>')+
+    '<button class="ddl-add" data-act="add-ddl">+ 加一件要干的事</button>';
   bindDDL();
 }
 
@@ -778,12 +812,24 @@ function renderProjects(){
   document.getElementById('plist').innerHTML=list.map(p=>
     '<div class="pcard" data-proj="'+p.id+'">'+
       '<span class="lane" style="background:'+LANES[p.lane].c+'"></span>'+
+      '<button class="del" data-del-proj="'+p.id+'" title="删除项目">×</button>'+
       '<div class="nm">'+esc(p.name)+'<span class="stage '+p.stage+'">'+STAGES[p.stage]+'</span></div>'+
       '<div class="nx">'+esc(p.next||'（没写下一步）')+'</div>'+
       '<div class="ft"><span>'+LANES[p.lane].nm+'</span><span>'+esc(p.updated||'')+'</span></div>'+
     '</div>').join('');
   document.querySelectorAll('[data-proj]').forEach(el=>{
     el.onclick=()=>editProject(el.dataset.proj);
+  });
+  document.querySelectorAll('[data-del-proj]').forEach(el=>{
+    el.onclick=e=>{
+      e.stopPropagation();
+      const p=DB.projects.find(x=>x.id===el.dataset.delProj);
+      if(!p)return;
+      if(!confirm('删除项目「'+p.name+'」？\n该项目下的期限不会被删，但会失去关联。'))return;
+      DB.projects=DB.projects.filter(x=>x.id!==p.id);
+      DB.ddls.forEach(d=>{if(d.projectId===p.id)d.projectId='';});
+      save();renderAll();toast('项目已删除');
+    };
   });
 }
 
@@ -817,6 +863,9 @@ function bindDDL(){
   });
 }
 
+function hostOf(u){
+  try{ return new URL(u).hostname.replace(/^www\./,''); }catch(e){ return '链接'; }
+}
 function renderArsenal(){
   const q=(document.getElementById('a-search').value||'').trim().toLowerCase();
   const f=document.getElementById('a-filter').value;
@@ -827,26 +876,53 @@ function renderArsenal(){
   });
   document.getElementById('a-count').textContent=DB.arsenal.length+' 条 · 显示 '+list.length+' 条';
   document.getElementById('agrid').innerHTML=list.length?list.map(a=>
-    '<div class="acard">'+
+    '<div class="acard" data-ars="'+a.id+'">'+
       '<div class="ty">'+TYPES[a.type]+'</div>'+
       '<button class="st'+(a.star?' on':'')+'" data-star="'+a.id+'">'+ic('star')+'</button>'+
       '<div class="tt">'+esc(a.title)+'</div>'+
       '<div class="bd">'+esc(a.body||'')+'</div>'+
+      (a.url
+        ? '<a class="link" href="'+esc(a.url)+'" target="_blank" rel="noopener noreferrer">打开 '+esc(hostOf(a.url))+' ↗</a>'
+        : '<div class="link" style="border:0;color:var(--ink3);cursor:pointer">+ 补个链接</div>')+
       ((a.tags&&a.tags.length)?'<div class="tags">'+a.tags.map(t=>'<span>'+esc(t)+'</span>').join('')+'</div>':'')+
       '<button class="rm" data-rm-ars="'+a.id+'">'+ic('trash')+'</button>'+
     '</div>').join(''):'<div class="empty">没搜到。Ctrl K 可以随时收一条。</div>';
+
+  document.querySelectorAll('[data-ars]').forEach(el=>{
+    el.onclick=e=>{
+      if(e.target.closest('a')||e.target.closest('button'))return;
+      editArs(el.dataset.ars);
+    };
+  });
   document.querySelectorAll('[data-star]').forEach(el=>{
-    el.onclick=()=>{
+    el.onclick=e=>{
+      e.stopPropagation();
       const a=DB.arsenal.find(x=>x.id===el.dataset.star);
       a.star=!a.star;save();renderArsenal();
     };
   });
   document.querySelectorAll('[data-rm-ars]').forEach(el=>{
-    el.onclick=()=>{
+    el.onclick=e=>{
+      e.stopPropagation();
       if(!confirm('删除这一条？'))return;
       DB.arsenal=DB.arsenal.filter(x=>x.id!==el.dataset.rmArs);
       save();renderAll();toast('已删除');
     };
+  });
+}
+function editArs(id){
+  const a=DB.arsenal.find(x=>x.id===id);
+  if(!a)return;
+  modal('编辑弹药',[
+    {key:'type',label:'类型',type:'select',value:a.type,options:Object.keys(TYPES).map(k=>[k,TYPES[k]])},
+    {key:'title',label:'标题',value:a.title},
+    {key:'body',label:'它能干什么 / 为什么收',type:'textarea',value:a.body},
+    {key:'url',label:'链接（GitHub / 下载页 / 文档）',value:a.url||'',ph:'https://github.com/...'},
+    {key:'tags',label:'标签（用空格分隔）',value:(a.tags||[]).join(' ')}
+  ],v=>{
+    a.type=v.type;a.title=v.title;a.body=v.body;a.url=v.url;
+    a.tags=v.tags?v.tags.split(/\s+/).filter(Boolean):[];
+    save();renderAll();toast('已更新');
   });
 }
 
@@ -886,13 +962,25 @@ function renderGrowth(){
   document.getElementById('gskill').innerHTML=DB.growth.skills.map(s=>
     '<div class="skillbox">'+
       '<div class="h"><span class="nm">'+esc(s.name)+'</span>'+
-      '<button class="px-btn" style="padding:2px 7px;box-shadow:none;font-size:12px" data-edit-skill="'+s.id+'">改</button></div>'+
+      '<span class="ops">'+
+        '<button class="px-btn" style="padding:2px 7px;box-shadow:none;font-size:12px" data-edit-skill="'+s.id+'">改</button>'+
+        '<button class="px-btn" style="padding:2px 7px;box-shadow:none;font-size:12px" data-del-skill="'+s.id+'">删除</button>'+
+      '</span></div>'+
       '<div class="row"><span class="k">证据</span><span class="evs">'+((s.evidence||[]).join('；')||'（还没记证据）')+'</span></div>'+
       '<div class="row"><span class="k">还缺</span><span>'+esc(s.gap||'—')+'</span></div>'+
       '<div class="row"><span class="k">下一步</span><span>'+esc(s.nextStep||'—')+'</span></div>'+
     '</div>').join('');
   document.querySelectorAll('[data-edit-skill]').forEach(el=>{
     el.onclick=()=>editSkill(el.dataset.editSkill);
+  });
+  document.querySelectorAll('[data-del-skill]').forEach(el=>{
+    el.onclick=()=>{
+      const s=DB.growth.skills.find(x=>x.id===el.dataset.delSkill);
+      if(!s)return;
+      if(!confirm('删除技能「'+s.name+'」？'))return;
+      DB.growth.skills=DB.growth.skills.filter(x=>x.id!==s.id);
+      save();renderAll();toast('已删除');
+    };
   });
 }
 

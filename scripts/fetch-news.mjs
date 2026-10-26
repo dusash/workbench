@@ -71,7 +71,10 @@ function cleanText(s = '') {
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"')
-    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&apos;/g, "'")
+    .replace(/&#x([0-9a-f]+);/gi, (_, c) => String.fromCharCode(parseInt(c, 16)))
+    .replace(/&#(\d+);/g, (_, c) => String.fromCharCode(Number(c)))
+    .replace(/&[a-z]+;/gi, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -102,7 +105,7 @@ function parseFeed(xml) {
     const rawDate = pick(b, 'pubDate') || pick(b, 'published') || pick(b, 'updated') || pick(b, 'dc:date');
     const desc = cleanText(pick(b, 'description') || pick(b, 'summary') || pick(b, 'content'));
     if (title && link) {
-      out.push({ title, url: link.trim(), desc: desc.slice(0, 400), date: rawDate.trim() });
+      out.push({ title, url: link.trim(), desc: desc.slice(0, 800), date: rawDate.trim() });
     }
   }
   return out;
@@ -318,25 +321,30 @@ const SYSTEM_PROMPT = `你是一名严谨的新闻编辑，服务于一位中国
 他的关注优先级：AI 与科技 > 美股与宏观 > 时政（只看大事）。
 
 规则：
-1. 只能从给定候选里挑选，禁止编造任何未出现的内容。
-2. 每条摘要用一句中文说清「发生了什么」，不超过 45 字，不加评价、不加标题党。
-3. 如果某个板块的候选全都不合格，就返回空数组 []，不要凑数。
-4. 严格输出 JSON，不要 markdown 代码块。`;
+1. 只能依据给定的标题和摘要来写，禁止编造候选里没有的事实、数字或背景。
+2. 每条摘要 200–300 字，写清楚三件事：
+   - 发生了什么（谁、做了什么、关键数字）
+   - 背景是什么（为什么现在发生、之前是什么状态）
+   - 为什么值得关注（对行业或对读者的影响）
+3. 用平实的中文陈述，不要标题党，不要「震惊」「重磅」这类词，不要加自己的评价。
+4. 如果候选信息不足以支撑 200 字，就写你确实知道的，宁短勿编。
+5. 如果某个板块的候选全都不合格，就返回空数组 []，不要凑数。
+6. 严格输出 JSON，不要 markdown 代码块。`;
 
 function buildUserPrompt(section, items) {
   const list = items
-    .slice(0, 40)
+    .slice(0, 30)
     .map((it, i) => `[${i}] (${it.source}) ${it.title}\n${it.desc || ''}`)
     .join('\n\n');
   return `板块：${section.name}
 挑选标准：${section.hint}
-最多挑 ${section.want} 条。
+最多挑 ${section.want} 条，每条 200–300 字。
 
 候选：
 ${list}
 
 输出格式：
-{"picked":[{"i":索引数字,"summary":"一句话中文摘要"}]}`;
+{"picked":[{"i":索引数字,"summary":"200-300字的中文摘要"}]}`;
 }
 
 /** 调用 crosery 中转（GitHub Models 已于 2026-07-30 退役，不再尝试） */
@@ -344,7 +352,7 @@ const aiErrors = [];
 
 async function callAI(section, items) {
   try {
-    const out = await withTimeout(() => callCrosery(section, items), 90000, 'AI/crosery');
+    const out = await withTimeout(() => callCrosery(section, items), 130000, 'AI/crosery');
     if (out) {
       log(`AI 完成「${section.name}」`);
       return { picked: out, provider: 'crosery' };
@@ -368,7 +376,7 @@ async function callCrosery(section, items) {
     body: JSON.stringify({
       model: process.env.CROSERY_MODEL || 'deepseek-v4.1-flash',
       temperature: 0.2,
-      max_tokens: 2000,
+      max_tokens: 4000,
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
         { role: 'user', content: buildUserPrompt(section, items) },
@@ -401,7 +409,7 @@ function parseAIJson(raw, items) {
       title: it.title,
       url: it.url,
       source: it.source,
-      summary: cleanText(p.summary || '').slice(0, 90),
+      summary: cleanText(p.summary || '').slice(0, 500),
     });
   }
   return out;
