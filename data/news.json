@@ -2,15 +2,15 @@
   "version": 1,
   "status": "ok",
   "aiSections": 4,
-  "generatedAt": "2026-10-26T04:35:44.367Z",
+  "generatedAt": "2026-10-26T04:42:00.397Z",
   "notes": [],
   "days": [
     {
       "date": "2026-10-26",
-      "generatedAt": "2026-10-26T04:35:44.366Z",
+      "generatedAt": "2026-10-26T04:42:00.396Z",
       "quote": {
-        "updated": "2026-10-23T21:15:59.000Z",
-        "note": "",
+        "updated": "2026-10-23 17:15:59",
+        "note": "美东时间",
         "source": "yahoo",
         "items": [
           {
@@ -39,25 +39,25 @@
               "title": "Nvidia open-sources Flora to make robot video labeling 125x cheaper than GPT-6 Astra",
               "url": "https://the-decoder.com/nvidia-open-sources-flora-to-make-robot-video-labeling-125x-cheaper-than-gpt-6-astra/",
               "source": "The Decoder",
-              "summary": "英伟达开源机器人视频标注数据引擎Flora，成本比GPT-6 Astra低约125倍。"
+              "summary": "英伟达开源机器人视频标注引擎Flora，成本比GPT-6 Astra低约125倍。"
             },
             {
               "title": "Anthropic says one AI agent beats many subagents now that models can handle complexity alone",
               "url": "https://the-decoder.com/anthropic-says-one-ai-agent-beats-many-subagents-now-that-models-can-handle-complexity-alone/",
               "source": "The Decoder",
-              "summary": "Anthropic称单智能体架构优于多子智能体，速度约快一倍，并发布迁移工具。"
+              "summary": "Anthropic称单一AI智能体已优于多子智能体架构，运行速度约快一倍。"
+            },
+            {
+              "title": "OpenAI offers discounts up to 90 percent to poach Anthropic&#039;s biggest customers",
+              "url": "https://the-decoder.com/openai-offers-discounts-up-to-90-percent-to-poach-anthropics-biggest-customers/",
+              "source": "The Decoder",
+              "summary": "OpenAI以最高90%折扣挖走Anthropic客户，部分公司AI成本降九成。"
             },
             {
               "title": "OpenMobile-2 proves open-source smartphone agents can rival proprietary models",
               "url": "https://the-decoder.com/openmobile-2-proves-open-source-smartphone-agents-can-rival-proprietary-models/",
               "source": "The Decoder",
-              "summary": "开源项目OpenMobile-2用110多个应用训练，手机智能体表现追平专有模型。"
-            },
-            {
-              "title": "Grok releases the first seven minutes of its AI-generated ‘Odyssey’",
-              "url": "https://techcrunch.com/2026/10/25/grok-releases-the-first-seven-minutes-of-its-ai-generated-odyssey/",
-              "source": "TechCrunch AI",
-              "summary": "Grok发布其AI生成影片《Odyssey》的前七分钟片段。"
+              "summary": "开源手机智能体OpenMobile-2在真实安卓设备上表现领先其他开源模型。"
             }
           ]
         },
@@ -69,13 +69,13 @@
               "title": "Moderna and Merck say their mRNA cancer vaccine cut death, recurrence by 42%",
               "url": "https://arstechnica.com/health/2026/10/personalized-mrna-cancer-vaccine-cut-melanoma-death-recurrence-by-42/",
               "source": "Ars Technica",
-              "summary": "Moderna与默克称其mRNA癌症疫苗将死亡或复发风险降低42%。"
+              "summary": "Moderna和默克称其mRNA癌症疫苗将死亡和复发率降低42%。"
             },
             {
               "title": "A 1,000-mile cloud on Mars may reveal physics never seen in nature",
               "url": "https://arstechnica.com/science/2026/10/a-1000-mile-cloud-on-mars-may-reveal-physics-never-seen-in-nature/",
               "source": "Ars Technica",
-              "summary": "新模型提出火星可能存在形成冰的物理过程，此前从未直接观测到。"
+              "summary": "新模型显示火星可能存在地球上从未直接观测到的成冰物理过程。"
             }
           ]
         },
@@ -93,13 +93,13 @@
               "title": "Berkshire shares shake the Buffett blues with new all-time highs",
               "url": "https://www.cnbc.com/2026/10/24/berkshire-record-high-without-buffett.html",
               "source": "CNBC",
-              "summary": "伯克希尔股价创历史新高，抹平巴菲特宣布卸任CEO后的全部跌幅。"
+              "summary": "伯克希尔股价创历史新高，抹平巴菲特宣布卸任CEO后的跌幅。"
             },
             {
               "title": "Nvidia's role as AI financier faces first big test as neoclouds take market hit",
               "url": "https://www.cnbc.com/2026/10/24/nvidias-role-as-ai-financier-faces-first-big-test-as-neoclouds-take-market-hit.html",
               "source": "CNBC",
-              "summary": "英伟达作为AI融资方的角色迎来首次重大考验，新兴云厂商股价受挫。"
+              "summary": "英伟达的AI融资角色面临首次重大考验，新型云厂商受到市场打击。"
             }
           ]
         },
@@ -108,10 +108,10 @@
           "name": "时政",
           "items": [
             {
-              "title": "Brazil's Lula wins historic presidential election; Bolsonaro reportedly refuses to concede",
-              "url": "https://www.cnbc.com/2026/10/26/brazil-lula-win-presidential-election-runoff-vote.html",
+              "title": "Saudi Arabia says it intercepted missiles and drones from Iran-backed Houthis",
+              "url": "https://www.cnbc.com/2026/10/25/saudi-arabia-houthi-missile-drone-interceptions.html",
               "source": "CNBC World",
-              "summary": "巴西左翼候选人卢拉赢得总统决选，博索纳罗据报拒绝承认败选"
+              "summary": "沙特称拦截伊朗支持的胡塞武装导弹与无人机，胡塞称袭击机场和能源设施。"
             }
           ]
         }
