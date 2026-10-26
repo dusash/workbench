@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "status": "fallback",
+  "aiSections": 0,
+  "generatedAt": "2026-10-26T01:41:49.677Z",
+  "notes": [
+    "源失败：BBC World（fetch failed）"
+  ],
+  "days": [
+    {
+      "date": "2026-10-26",
+      "generatedAt": "2026-10-26T01:41:49.676Z",
+      "quote": {
+        "updated": "2026-10-23 17:15:59",
+        "note": "美东时间",
+        "source": "tencent",
+        "items": [
+          {
+            "name": "纳斯达克",
+            "symbol": "IXIC",
+            "price": 25955.34,
+            "change": -53.52,
+            "pct": -0.21
+          },
+          {
+            "name": "标普500",
+            "symbol": "INX",
+            "price": 7623.68,
+            "change": -39.75,
+            "pct": -0.52
+          }
+        ]
+      },
+      "hotStocks": [],
+      "sections": [
+        {
+          "key": "ai",
+          "name": "AI 动态",
+          "items": [
+            {
+              "title": "Grok releases the first seven minutes of its AI-generated ‘Odyssey’",
+              "url": "https://techcrunch.com/2026/10/25/grok-releases-the-first-seven-minutes-of-its-ai-generated-odyssey/",
+              "source": "TechCrunch AI",
+              "summary": ""
+            },
+            {
+              "title": "AI delivers ‘zero financial payoff’ to most companies, Apollo economist says",
+              "url": "https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/",
+              "source": "TechCrunch AI",
+              "summary": ""
+            },
+            {
+              "title": "The hottest AI wearables and gadgets you should know about",
+              "url": "https://techcrunch.com/2026/10/25/the-hottest-ai-wearables-and-gadgets-you-should-know-about/",
+              "source": "TechCrunch AI",
+              "summary": ""
+            },
+            {
+              "title": "r/opensource just banned AI, non-English speakers, and more",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1018217/reddit-opensource-ai-ban",
+              "source": "The Verge AI",
+              "summary": ""
+            }
+          ]
+        },
+        {
+          "key": "tech",
+          "name": "科技突破",
+          "items": [
+            {
+              "title": "A 1,000-mile cloud on Mars may reveal physics never seen in nature",
+              "url": "https://arstechnica.com/science/2026/10/a-1000-mile-cloud-on-mars-may-reveal-physics-never-seen-in-nature/",
+              "source": "Ars Technica",
+              "summary": ""
+            },
+            {
+              "title": "Ice sheet expansion may have started 2,000 years ago, but we canceled that",
+              "url": "https://arstechnica.com/science/2026/10/ice-sheet-expansion-may-have-started-2000-years-go-but-we-canceled-that/",
+              "source": "Ars Technica",
+              "summary": ""
+            }
+          ]
+        },
+        {
+          "key": "us",
+          "name": "美股行情",
+          "items": [
+            {
+              "title": "Brazil's Lula wins presidential election in runoff vote",
+              "url": "https://www.cnbc.com/2026/10/26/brazil-lula-win-presidential-election-runoff-vote.html",
+              "source": "CNBC",
+              "summary": ""
+            },
+            {
+              "title": "SpaceX closes $40 billion debt deal for AI chips, Elon Musk says",
+              "url": "https://www.cnbc.com/2026/10/26/spacex-closes-40-billion-debt-deal-for-ai-chips-elon-musk-.html",
+              "source": "CNBC",
+              "summary": ""
+            },
+            {
+              "title": "Behind ‘Mad Money’ was a brilliant writer viewers never saw. We lost him too soon",
+              "url": "https://www.cnbc.com/investingclub/2026/10/25/jim-cramer-remembers-cliff-mason.html",
+              "source": "CNBC",
+              "summary": ""
+            }
+          ]
+        },
+        {
+          "key": "world",
+          "name": "时政",
+          "items": [
+            {
+              "title": "Brazil's Lula wins presidential election in runoff vote",
+              "url": "https://www.cnbc.com/2026/10/26/brazil-lula-win-presidential-election-runoff-vote.html",
+              "source": "CNBC World",
+              "summary": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

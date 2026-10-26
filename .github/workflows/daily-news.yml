@@ -1,0 +1,48 @@
+name: Daily News
+
+# 北京 06:00 = UTC 22:00（前一天）
+on:
+  schedule:
+    - cron: '0 22 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  models: read
+
+concurrency:
+  group: daily-news
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch news
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CROSERY_KEY: ${{ secrets.CROSERY_KEY }}
+          CROSERY_URL: ${{ secrets.CROSERY_URL }}
+          CROSERY_MODEL: ${{ secrets.CROSERY_MODEL }}
+        run: node scripts/fetch-news.mjs
+
+      - name: Commit data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/news.json
+          if git diff --staged --quiet; then
+            echo "数据无变化，跳过提交"
+          else
+            git commit -m "news: $(date -u +%Y-%m-%d)"
+            git push
+          fi
