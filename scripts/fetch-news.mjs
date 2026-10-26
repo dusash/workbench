@@ -184,11 +184,14 @@ async function quoteYahoo() {
     const change = +(price - prev).toFixed(2);
     const pct = +((change / prev) * 100).toFixed(2);
     if (!stamp && meta.regularMarketTime) {
-      stamp = new Date(meta.regularMarketTime * 1000).toISOString();
+      // 转成美东时间，和用户看到的"收盘时间"一致
+      stamp = new Date(meta.regularMarketTime * 1000).toLocaleString('sv-SE', {
+        timeZone: 'America/New_York',
+      });
     }
     items.push({ name, symbol: key, price: +price.toFixed(2), change, pct });
   }
-  return { updated: stamp || new Date().toISOString(), items };
+  return { updated: stamp, updatedNote: '美东时间', items };
 }
 
 async function quoteTencent() {
