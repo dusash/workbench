@@ -352,8 +352,10 @@ async function callAI(section, items) {
         return { ...out, provider: p.name };
       }
     } catch (e) {
-      log(`AI ${p.name} 失败：${e.message}`);
-      aiErrors.push(`${p.name}: ${String(e.message).slice(0, 90)}`);
+      const cause = e && e.cause ? ` [${e.cause.code || e.cause.message || String(e.cause)}]` : '';
+      const msg = `${p.name}: ${String(e.message).slice(0, 80)}${cause}`;
+      log(`AI ${p.name} 失败：${msg}`);
+      aiErrors.push(msg);
     }
   }
   return null;

@@ -27,6 +27,19 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Probe models endpoint
+        continue-on-error: true
+        run: |
+          echo "--- DNS ---"
+          getent hosts models.github.ai || echo "DNS fail"
+          echo "--- POST chat/completions ---"
+          curl -sS -o /tmp/probe.json -w "HTTP %{http_code}\n" --max-time 25 \
+            -X POST https://models.github.ai/inference/chat/completions \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"model":"openai/gpt-4o-mini","messages":[{"role":"user","content":"say ok"}],"max_tokens":8}' || echo "curl failed"
+          head -c 500 /tmp/probe.json || true
+
       - name: Fetch news
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
