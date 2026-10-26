@@ -369,6 +369,30 @@ select.inp{
 .qfoot{padding:6px 14px;border-top:2px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--ink3)}
 .qfail{padding:14px;font-size:12px;color:var(--brick)}
 
+.qi.vix{flex:0 1 160px;border-right:0}
+.qi.vix .qp{font-size:22px}
+.vtag{
+  display:inline-block;margin-top:5px;padding:1px 7px;
+  font-family:var(--mono);font-size:12px;letter-spacing:1px;
+  border:2px solid currentColor;
+}
+.vtag.calm{color:var(--olive)}
+.vtag.normal{color:var(--olive)}
+.vtag.anxious{color:var(--orange-d)}
+.vtag.fear{color:var(--brick)}
+.vtag.panic{color:var(--brick);background:var(--brick);color:var(--card)}
+
+.mview{
+  border:2px solid var(--ink);background:var(--card);
+  box-shadow:3px 3px 0 0 var(--shadow);margin-bottom:18px;padding:12px 14px;
+}
+.mview-h{
+  font-family:var(--mono);font-size:12px;letter-spacing:2px;
+  color:var(--orange-d);margin-bottom:8px;display:flex;align-items:center;gap:8px;
+}
+.mview-h:after{content:"";flex:1;height:1px;background:var(--line)}
+.mview-b{font-size:12px;line-height:1.9;color:var(--ink2);text-indent:2em}
+
 .nsec{margin-bottom:20px}
 .nsec-t{
   font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--ink3);
@@ -1056,10 +1080,26 @@ function renderNews(tag){
         '<span class="qp">'+px+'</span><span class="qc '+cls+'">'+sign+Number(q.pct).toFixed(2)+'%</span>'+
         '</div></div>';
     });
+    const v=d.quote.vix;
+    if(v){
+      const vsign=v.pct>0?'+':'';
+      const lv=(v.level&&v.level.k)||'normal';
+      const lt=(v.level&&v.level.t)||'';
+      html+='<div class="qi vix"><span class="qn">恐慌指数 VIX</span><div class="qv">'+
+        '<span class="qp">'+Number(v.close).toFixed(2)+'</span>'+
+        '<span class="qc">'+vsign+Number(v.pct).toFixed(2)+'%</span></div>'+
+        '<span class="vtag '+lv+'">'+esc(lt)+'</span></div>';
+    }
     html+='</div><div class="qfoot">收盘 '+fmtStamp(d.quote.updated)+
-      (d.quote.note?' · '+d.quote.note:'')+'</div></div>';
+      (d.quote.note?' · '+d.quote.note:'')+
+      (v?' · VIX 截至 '+esc(v.date||d.quote.updated):'')+'</div></div>';
   }else{
     html+='<div class="qbar"><div class="qfail">行情获取失败，这里不显示数字（不会拿昨天数据充数）</div></div>';
+  }
+
+  if(d.marketView){
+    html+='<div class="mview"><div class="mview-h">AI 观点</div>'+
+      '<div class="mview-b">'+esc(d.marketView)+'</div></div>';
   }
 
   if(d.hotStocks&&d.hotStocks.length){

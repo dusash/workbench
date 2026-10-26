@@ -141,6 +141,81 @@ async function withTimeout(fn, ms, label) {
 }
 
 // ─────────────────────────── ① 行情 ───────────────────────────
+/** 恐慌指数 VIX：CBOE 官方 CSV 为主，Yahoo 备选 */
+function vixLevel(v) {
+  if (v < 12) return { k: 'calm', t: '极度平静' };
+  if (v < 20) return { k: 'normal', t: '正常' };
+  if (v < 30) return { k: 'anxious', t: '焦虑' };
+  if (v < 40) return { k: 'fear', t: '恐慌' };
+  return { k: 'panic', t: '极度恐慌' };
+}
+
+async function fetchVIX() {
+  // 1) CBOE 官方历史 CSV，取最后两行算涨跌
+  try {
+    const res = await withTimeout(
+      () =>
+        fetch('https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv', {
+          headers: { 'User-Agent': UA },
+          redirect: 'follow',
+        }),
+      20000,
+      'CBOE'
+    );
+    if (!res.ok) throw new Error(`CBOE HTTP ${res.status}`);
+    const text = await res.text();
+    const lines = text.trim().split(/\r?\n/);
+    if (lines.length < 2) throw new Error('CBOE 行数不足');
+    const last = lines[lines.length - 1].split(',');
+    const prev = lines[lines.length - 2].split(',');
+    const close = parseFloat(last[4]);
+    const prevClose = parseFloat(prev[4]);
+    if (!Number.isFinite(close) || !Number.isFinite(prevClose)) throw new Error('CBOE 解析失败');
+    const change = +(close - prevClose).toFixed(2);
+    const pct = +((change / prevClose) * 100).toFixed(2);
+    const [mm, dd, yyyy] = last[0].split('/');
+    log(`VIX（CBOE）：${close} ${change > 0 ? '+' : ''}${pct}%`);
+    return {
+      close,
+      change,
+      pct,
+      date: `${yyyy}-${mm}-${dd}`,
+      prevClose,
+      level: vixLevel(close),
+      source: 'cboe',
+    };
+  } catch (e) {
+    log(`VIX CBOE 失败：${e.message}`);
+  }
+  // 2) Yahoo ^VIX 备选
+  try {
+    const res = await withTimeout(
+      () =>
+        fetch('https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX?interval=1d&range=5d', {
+          headers: { 'User-Agent': UA, Accept: 'application/json' },
+        }),
+      15000,
+      'YahooVIX'
+    );
+    if (!res.ok) throw new Error(`Yahoo VIX HTTP ${res.status}`);
+    const j = await res.json();
+    const meta = j?.chart?.result?.[0]?.meta;
+    if (!meta) throw new Error('Yahoo VIX 无数据');
+    const prevClose = meta.chartPreviousClose ?? meta.previousClose;
+    const close = meta.regularMarketPrice;
+    const change = +(close - prevClose).toFixed(2);
+    const pct = +((change / prevClose) * 100).toFixed(2);
+    const d = new Date(meta.regularMarketTime * 1000).toLocaleString('sv-SE', {
+      timeZone: 'America/New_York',
+    });
+    log(`VIX（Yahoo）：${close} ${change > 0 ? '+' : ''}${pct}%`);
+    return { close, change, pct, date: d.slice(0, 10), prevClose, level: vixLevel(close), source: 'yahoo' };
+  } catch (e) {
+    log(`VIX Yahoo 失败：${e.message}`);
+  }
+  return null;
+}
+
 /**
  * 依次尝试 Yahoo → 腾讯 → Sina。
  * 全部失败返回 null，由前端显示「行情获取失败」。
@@ -394,6 +469,63 @@ async function callCrosery(section, items) {
   return parseAIJson(content, items);
 }
 
+/** 调 crosery 拿纯文本（不做 JSON 解析） */
+async function callCroseryRaw(system, user, maxTokens = 1500) {
+  const key = process.env.CROSERY_KEY;
+  const base = process.env.CROSERY_URL || 'https://ai.crosery.cn/v1';
+  if (!key) throw new Error('无 CROSERY_KEY');
+  const res = await fetch(`${base}/chat/completions`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: process.env.CROSERY_MODEL || 'deepseek-v4.1-flash',
+      temperature: 0.3,
+      max_tokens: maxTokens,
+      messages: [
+        { role: 'system', content: system },
+        { role: 'user', content: user },
+      ],
+    }),
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status} ${(await res.text()).slice(0, 100)}`);
+  const raw = await res.json();
+  const j = raw && raw.data ? raw.data : raw;
+  const text = j?.choices?.[0]?.message?.content;
+  if (!text) throw new Error('空响应');
+  return cleanText(text);
+}
+
+/** AI 行情解读：结合三大指数、VIX 和当日美股新闻写一段 */
+async function buildMarketView(quote, vix, usItems) {
+  if (!quote || !quote.items || !quote.items.length) return null;
+
+  const SYS = `你是一名美股市场观察者，为一位关注科技股的中国大学生写每日行情解读。
+规则：
+1. 只能依据给定数据，禁止编造未提供的数字或事件。
+2. 150–250 字，写清楚三件事：指数表现说明了什么、恐慌指数处在什么位置、今天最值得注意的驱动因素。
+3. 平实陈述，不给投资建议，不预测点位，不写「建议关注」「值得布局」这类话。
+4. 直接输出正文，不要标题、不要 markdown、不要分点。`;
+
+  const idx = quote.items.map((i) => `${i.name} ${i.price}（${i.pct > 0 ? '+' : ''}${i.pct}%）`).join('；');
+  const vixLine = vix
+    ? `VIX 恐慌指数 ${vix.close}（${vix.pct > 0 ? '+' : ''}${vix.pct}%，前一日 ${vix.prevClose}，当前属于「${vix.level.t}」区间）`
+    : 'VIX 数据缺失';
+  const news = (usItems || []).map((it) => `- ${it.title}${it.summary ? '：' + it.summary : ''}`).join('\n');
+
+  const user = `收盘日期：${quote.updated}（美东）
+指数：${idx}
+${vixLine}
+
+当日相关新闻：
+${news || '（无）'}
+
+请写今天的行情解读。`;
+
+  const text = await callCroseryRaw(SYS, user);
+  log(`行情解读完成（${text.length} 字）`);
+  return text;
+}
+
 function parseAIJson(raw, items) {
   if (!raw) throw new Error('AI 返回空');
   const s = String(raw).replace(/```json|```/g, '').trim();
@@ -449,6 +581,14 @@ async function main() {
   const quote = await getQuote();
   if (!quote) notes.push('行情获取失败');
 
+  // 1.5) 恐慌指数
+  const vix = await fetchVIX().catch((e) => {
+    log(`VIX 失败：${e.message}`);
+    return null;
+  });
+  if (quote && vix) quote.vix = vix;
+  if (!vix) notes.push('VIX 获取失败');
+
   // 2) 抓取四个板块
   const bucket = {};
   for (const [k, feeds] of Object.entries(FEEDS)) {
@@ -485,13 +625,36 @@ async function main() {
     hotStocks = await checkWeightStocks().catch(() => []);
   }
 
+  // 4.5) AI 行情解读（行情数字 + 美股板块选出的新闻）
+  let marketView = null;
+  if (quote?.items?.length) {
+    const usSec = sections.find((s) => s.key === 'us');
+    try {
+      marketView = await withTimeout(
+        () => buildMarketView(quote, vix, usSec ? usSec.items : []),
+        130000,
+        'marketView'
+      );
+    } catch (e) {
+      log(`行情解读失败：${e.message}`);
+      notes.push(`行情解读失败：${String(e.message).slice(0, 60)}`);
+    }
+  }
+
   // 5) 组装当天数据
   const today = {
     date: todayKey(),
     generatedAt: new Date().toISOString(),
     quote: quote
-      ? { updated: quote.updated, note: quote.updatedNote || '', source: quote.source, items: quote.items }
+      ? {
+          updated: quote.updated,
+          note: quote.updatedNote || '',
+          source: quote.source,
+          items: quote.items,
+          vix: quote.vix || null,
+        }
       : null,
+    marketView,
     hotStocks,
     sections,
   };
