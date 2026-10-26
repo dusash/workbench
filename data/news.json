@@ -2,12 +2,15 @@
   "version": 1,
   "status": "fallback",
   "aiSections": 0,
-  "generatedAt": "2026-10-26T01:50:39.340Z",
-  "notes": [],
+  "generatedAt": "2026-10-26T01:56:21.111Z",
+  "notes": [
+    "github-models: fetch failed",
+    "crosery: 无 CROSERY_KEY"
+  ],
   "days": [
     {
       "date": "2026-10-26",
-      "generatedAt": "2026-10-26T01:50:39.340Z",
+      "generatedAt": "2026-10-26T01:56:21.111Z",
       "quote": {
         "updated": "2026-10-23T21:15:59.000Z",
         "note": "",
@@ -66,14 +69,14 @@
           "name": "科技突破",
           "items": [
             {
-              "title": "A 1,000-mile cloud on Mars may reveal physics never seen in nature",
-              "url": "https://arstechnica.com/science/2026/10/a-1000-mile-cloud-on-mars-may-reveal-physics-never-seen-in-nature/",
+              "title": "Spotify ramps up policy enforcement on family plans",
+              "url": "https://arstechnica.com/gadgets/2026/10/spotify-ramps-up-policy-enforcement-on-family-plans/",
               "source": "Ars Technica",
               "summary": ""
             },
             {
-              "title": "Ice sheet expansion may have started 2,000 years ago, but we canceled that",
-              "url": "https://arstechnica.com/science/2026/10/ice-sheet-expansion-may-have-started-2000-years-go-but-we-canceled-that/",
+              "title": "Intel gets waiver after worries fuzzy US ban on foreign-made robots may hit fabs",
+              "url": "https://arstechnica.com/ai/2026/10/intel-gets-waiver-after-worries-fuzzy-us-ban-on-foreign-made-robots-may-hit-fabs/",
               "source": "Ars Technica",
               "summary": ""
             }
@@ -84,20 +87,20 @@
           "name": "美股行情",
           "items": [
             {
-              "title": "Brazil's Lula wins presidential election in runoff vote",
-              "url": "https://www.cnbc.com/2026/10/26/brazil-lula-win-presidential-election-runoff-vote.html",
+              "title": "More than a third of S&P 500 companies are about to report earnings as market confidence cracks",
+              "url": "https://www.marketwatch.com/story/more-than-a-third-of-s-p-500-companies-are-about-to-report-earnings-as-market-confidence-cracks-03b7a8f1?mod=mw_rss_topstories",
+              "source": "MarketWatch",
+              "summary": ""
+            },
+            {
+              "title": "What next for France as riots rattle markets? Three questions facing investors ahead of more protests",
+              "url": "https://www.cnbc.com/2026/10/24/france-riots-paris-unrest-debt-budget.html",
               "source": "CNBC",
               "summary": ""
             },
             {
-              "title": "SpaceX closes $40 billion debt deal for AI chips, Elon Musk says",
-              "url": "https://www.cnbc.com/2026/10/26/spacex-closes-40-billion-debt-deal-for-ai-chips-elon-musk-.html",
-              "source": "CNBC",
-              "summary": ""
-            },
-            {
-              "title": "Behind ‘Mad Money’ was a brilliant writer viewers never saw. We lost him too soon",
-              "url": "https://www.cnbc.com/investingclub/2026/10/25/jim-cramer-remembers-cliff-mason.html",
+              "title": "Retail investors are not more sophisticated than 30 years ago, says former hedge fund manager",
+              "url": "https://www.cnbc.com/2026/10/24/stock-picking-could-hurt-investors-warns-former-hedge-fund-manager.html",
               "source": "CNBC",
               "summary": ""
             }
@@ -108,7 +111,7 @@
           "name": "时政",
           "items": [
             {
-              "title": "Brazil's Lula wins presidential election in runoff vote",
+              "title": "Brazil's Lula wins historic presidential election in runoff vote",
               "url": "https://www.cnbc.com/2026/10/26/brazil-lula-win-presidential-election-runoff-vote.html",
               "source": "CNBC World",
               "summary": ""
