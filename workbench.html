@@ -1001,20 +1001,34 @@ function newsFail(msg){
       : '<br>可能还没跑过抓取任务，或者网络不通。<br>其余功能不受影响，可以正常使用。')+
     '</div>';
 }
+let newsLastFetch=0;
+let newsFetching=false;
+
 async function loadNews(force){
-  if(NEWS){ renderNews(); if(!force) return; }
+  const now=Date.now();
+  // 先把已有数据画出来，避免白屏
+  if(NEWS) renderNews();
+  if(newsFetching) return;
+  // 2 分钟内不重复请求，但每次打开页面总会拉一次
+  if(!force && newsLastFetch && now-newsLastFetch<120000) return;
+
+  newsFetching=true;
   try{
-    const r=await fetch('./data/news.json?t='+Date.now(),{cache:'no-store'});
+    const r=await fetch('./data/news.json?t='+now,{cache:'no-store'});
     if(!r.ok) throw new Error('HTTP '+r.status);
     const j=await r.json();
     if(!j.days||!j.days.length) throw new Error('数据为空');
     NEWS=j;newsDay=0;
     try{ localStorage.setItem('workbench.news',JSON.stringify(j)); }catch(e){}
+    newsLastFetch=now;
     renderNews();
   }catch(e){
+    newsLastFetch=now;
     if(NEWS) renderNews('缓存');
     else if(location.protocol==='file:') newsFail('本地双击打开时浏览器禁止读取数据文件');
     else newsFail(e.message);
+  }finally{
+    newsFetching=false;
   }
 }
 function renderNews(tag){

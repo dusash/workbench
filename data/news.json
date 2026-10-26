@@ -2,15 +2,15 @@
   "version": 1,
   "status": "ok",
   "aiSections": 4,
-  "generatedAt": "2026-10-26T05:10:39.501Z",
+  "generatedAt": "2026-10-26T04:35:44.367Z",
   "notes": [],
   "days": [
     {
       "date": "2026-10-26",
-      "generatedAt": "2026-10-26T05:10:39.500Z",
+      "generatedAt": "2026-10-26T04:35:44.366Z",
       "quote": {
-        "updated": "2026-10-23 17:15:59",
-        "note": "美东时间",
+        "updated": "2026-10-23T21:15:59.000Z",
+        "note": "",
         "source": "yahoo",
         "items": [
           {
@@ -39,25 +39,25 @@
               "title": "Nvidia open-sources Flora to make robot video labeling 125x cheaper than GPT-6 Astra",
               "url": "https://the-decoder.com/nvidia-open-sources-flora-to-make-robot-video-labeling-125x-cheaper-than-gpt-6-astra/",
               "source": "The Decoder",
-              "summary": "英伟达开源了名为 Flora 的数据引擎，用于给机器人视频做标注。据披露，用 Flora 标注一小时机器人视频的成本是 72 美分，而使用 GPT-6 Astra 需要 88 美元，前者便宜约 125 倍，同时在质量评分上还略高一些。Flora 基于三个经过微调的 Qwen3.5 模型构建，在识别机器人动作错误方面比现有竞品更可靠，但在描述性内容的准确性上有时不够。英伟达把 Flora 定位为其掌控整个机器人价值链战略的关键一环。机器人训练依赖大量带标注的视频数据，而标注一直是成本高、耗时的环节。开源且低成本的标注工具如果被广泛采用，可能降低机器人模型训练的门槛，也会影响现有数据标注服务商的定价空间。"
-            },
-            {
-              "title": "OpenAI offers discounts up to 90 percent to poach Anthropic's biggest customers",
-              "url": "https://the-decoder.com/openai-offers-discounts-up-to-90-percent-to-poach-anthropics-biggest-customers/",
-              "source": "The Decoder",
-              "summary": "据 The Decoder 报道，OpenAI 正以最高 90% 的折扣挖走 Anthropic 的大客户。Rippling、Replit、DataCamp 等公司表示，在切换到 OpenAI 之后，其 AI 成本最多下降了 90%。报道同时提到，Anthropic 的增长已经放缓，而 OpenAI 是在用自身利润率换取市场份额。此外，DeepSeek 等中国竞争对手也在持续施加价格压力。企业级大模型市场此前由少数几家厂商主导，定价相对稳定；随着模型能力趋同，价格成为争夺客户的主要手段。这一变化对采购 AI 服务的企业是直接利好，但持续降价会压缩模型厂商的利润空间，也可能影响其在研发上的投入能力。"
+              "summary": "英伟达开源机器人视频标注数据引擎Flora，成本比GPT-6 Astra低约125倍。"
             },
             {
               "title": "Anthropic says one AI agent beats many subagents now that models can handle complexity alone",
               "url": "https://the-decoder.com/anthropic-says-one-ai-agent-beats-many-subagents-now-that-models-can-handle-complexity-alone/",
               "source": "The Decoder",
-              "summary": "Anthropic 提出，随着模型自身处理复杂任务的能力提升，企业应当重新评估是否还需要把任务拆给多个子 agent，改为使用一个按需加载上下文的单一 agent。在一次架构对比中，单 agent 方案的运行速度约为多子 agent 方案的两倍。Anthropic 已在 GitHub 上发布了迁移工具包，帮助团队完成改造。此前，多 agent 编排被广泛视为处理复杂流程的常规做法，但会带来额外的通信开销和调试难度。如果单 agent 能在保持效果的同时把速度提升一倍，那么已经搭建多 agent 系统的团队可能需要重新审视架构，这也意味着 agent 框架和工具链的竞争重点会从「能拆多细」转向「上下文管理做得多好」。"
+              "summary": "Anthropic称单智能体架构优于多子智能体，速度约快一倍，并发布迁移工具。"
             },
             {
-              "title": "Anthropic co-founder Jack Clark moves his prediction for self-improving AI forward to 2027",
-              "url": "https://the-decoder.com/anthropic-co-founder-jack-clark-moves-his-prediction-for-self-improving-ai-forward-to-2027/",
+              "title": "OpenMobile-2 proves open-source smartphone agents can rival proprietary models",
+              "url": "https://the-decoder.com/openmobile-2-proves-open-source-smartphone-agents-can-rival-proprietary-models/",
               "source": "The Decoder",
-              "summary": "Anthropic 联合创始人 Jack Clark 把自己对「自我改进 AI」出现时间的预测提前到了 2027 年。这一调整与 P-Zero Research 发布的新基准有关，该基准用来衡量 AI 模型自行设计实验并评估实验结果的能力，结果显示模型的表现在快速提升。所谓自我改进，指模型能够参与改进下一代模型的研究流程，而不只是完成人类指定的任务。此前业内对这类能力的预期时间普遍更晚。如果模型在实验设计和评估上确实接近可用水平，AI 研发的迭代速度可能进一步加快，同时也会让「如何验证模型自己得出的结论」成为更紧迫的问题。"
+              "summary": "开源项目OpenMobile-2用110多个应用训练，手机智能体表现追平专有模型。"
+            },
+            {
+              "title": "Grok releases the first seven minutes of its AI-generated ‘Odyssey’",
+              "url": "https://techcrunch.com/2026/10/25/grok-releases-the-first-seven-minutes-of-its-ai-generated-odyssey/",
+              "source": "TechCrunch AI",
+              "summary": "Grok发布其AI生成影片《Odyssey》的前七分钟片段。"
             }
           ]
         },
@@ -69,13 +69,13 @@
               "title": "Moderna and Merck say their mRNA cancer vaccine cut death, recurrence by 42%",
               "url": "https://arstechnica.com/health/2026/10/personalized-mrna-cancer-vaccine-cut-melanoma-death-recurrence-by-42/",
               "source": "Ars Technica",
-              "summary": "Moderna 与 Merck 公布其 mRNA 癌症疫苗的顶线结果：该疫苗使死亡和复发风险降低 42%。两家公司此前已报告这项试验达到成功标准，此次是首次给出具体数字。 背景：这是 mRNA 技术从传染病疫苗向肿瘤治疗延伸的关键一步。此前两家公司只宣布试验成功，没有披露效果幅度，外界对疗效大小只能推测。42% 指的是疫苗组相对对照组的死亡与复发风险下降幅度。 为什么值得关注：如果这一结果在更大规模试验中得到验证，mRNA 平台可能成为实体瘤治疗后辅助手段的选项之一，而不只是新冠疫情期间的应急技术。对产业来说，这会改变市场对 mRNA 公司管线价值的判断；对普通读者来说，癌症复发风险的实质性下降，是少数能直接改变患者预期的进展。需要说明的是，目前公布的是顶线数据，完整数据和长期随访结果尚未披露。"
+              "summary": "Moderna与默克称其mRNA癌症疫苗将死亡或复发风险降低42%。"
             },
             {
               "title": "A 1,000-mile cloud on Mars may reveal physics never seen in nature",
               "url": "https://arstechnica.com/science/2026/10/a-1000-mile-cloud-on-mars-may-reveal-physics-never-seen-in-nature/",
               "source": "Ars Technica",
-              "summary": "火星大气中存在一条绵延约 1000 英里的云。一项新提出的模型认为，火星上可能存在一种此前从未在自然界中被直接观测到的成冰物理机制，这条云被视为相关线索。 背景：这一判断来自模型推演，而不是直接探测。研究者用新模型来解释这条云的成因，并由此提出火星上可能存在尚未被直接观测的成冰过程。 为什么值得关注：如果该机制得到证实，意味着自然界中还存在人类尚未记录的水冰形成路径，行星大气与云物理的模型需要相应扩展。这类结果的价值在于它指向的是物理规律本身，而不只是某一颗行星的局部现象。需要说明的是，目前结论仍停留在模型阶段，是否成立取决于后续观测能否验证。"
+              "summary": "新模型提出火星可能存在形成冰的物理过程，此前从未直接观测到。"
             }
           ]
         },
@@ -87,19 +87,19 @@
               "title": "More than a third of S&P 500 companies are about to report earnings as market confidence cracks",
               "url": "https://www.marketwatch.com/story/more-than-a-third-of-s-p-500-companies-are-about-to-report-earnings-as-market-confidence-cracks-03b7a8f1?mod=mw_rss_topstories",
               "source": "MarketWatch",
-              "summary": "标普500指数中超过三分之一的成分股将在本周集中公布财报，而市场信心正出现松动。一位策略师表示，在市场情绪从谨慎到负面的情况下，这可能是一周走势棘手的时间。背景是美股财报季进入披露高峰，超过三分之一的指数成分股在同一时间段交出业绩，意味着大盘短期表现将高度依赖企业盈利与前瞻指引，而非单一宏观数据。值得关注的是，财报密集期通常会放大个股波动，若业绩或指引不及预期，容易拖累指数；反过来，若盈利韧性超出预期，也可能修复此前的谨慎情绪。对关注美股的读者来说，这一周是观察美国企业盈利状况与市场风险偏好的关键窗口。"
+              "summary": "超三分之一标普500公司即将发布财报，市场信心出现裂痕。"
             },
             {
-              "title": "More pain may be coming for the AI trade. Why I’m not giving up on it",
-              "url": "https://www.cnbc.com/investingclub/2026/10/25/jim-cramer-ai-trade-nvidia-coreweave.html",
+              "title": "Berkshire shares shake the Buffett blues with new all-time highs",
+              "url": "https://www.cnbc.com/2026/10/24/berkshire-record-high-without-buffett.html",
               "source": "CNBC",
-              "summary": "CNBC 主持人 Jim Cramer 在面向 Investing Club 订阅者的周日专栏中写道，AI 相关交易可能还会承受更多痛苦，但他并不打算放弃这一方向。他在专栏中解释了 AI 交易为何出现裂痕，以及自己正在采取什么应对措施。背景是这一专栏为 Cramer 每周日固定发布的内容，面向其投资俱乐部的付费订阅者，讨论的是他本人对当前市场主线的判断与操作。值得关注的是，AI 相关标的在美股中权重和关注度都很高，其走势对大盘影响明显；当市场对 AI 交易的持续性出现分歧时，这类观点能反映部分投资者正在如何调整仓位。对读者而言，这提供了一个观察 AI 行情是否进入阶段性调整的视角。"
+              "summary": "伯克希尔股价创历史新高，抹平巴菲特宣布卸任CEO后的全部跌幅。"
             },
             {
-              "title": "SpaceX closes $40 billion debt deal for AI chips, Elon Musk says",
-              "url": "https://www.cnbc.com/2026/10/26/spacex-closes-40-billion-debt-deal-for-ai-chips-elon-musk-.html",
+              "title": "Nvidia's role as AI financier faces first big test as neoclouds take market hit",
+              "url": "https://www.cnbc.com/2026/10/24/nvidias-role-as-ai-financier-faces-first-big-test-as-neoclouds-take-market-hit.html",
               "source": "CNBC",
-              "summary": "马斯克在 X 上发文称，SpaceX 已完成 400 亿美元的债务融资，用于购买 GPU。此前有报道称，SpaceX 正在快速扩张一项 AI 业务，对外出租先进芯片的算力，马斯克同时预测部分 AI 竞争对手将面临困境。背景是 AI 算力需求持续攀升，企业为采购芯片和数据中心资源所需的资金规模不断扩大，融资手段也从股权扩展到大规模债务。值得关注的是，这类巨额资本开支是当前 AI 交易叙事的核心支撑之一，其规模和节奏会直接影响市场对芯片、服务器、数据中心等产业链需求的预期。对关注科技与美股的读者来说，这是判断 AI 基础设施投入是否仍在加速的一个观察点。"
+              "summary": "英伟达作为AI融资方的角色迎来首次重大考验，新兴云厂商股价受挫。"
             }
           ]
         },
@@ -108,10 +108,10 @@
           "name": "时政",
           "items": [
             {
-              "title": "What next for France as riots rattle markets? Three questions facing investors ahead of more protests",
-              "url": "https://www.cnbc.com/2026/10/24/france-riots-paris-unrest-debt-budget.html",
+              "title": "Brazil's Lula wins historic presidential election; Bolsonaro reportedly refuses to concede",
+              "url": "https://www.cnbc.com/2026/10/26/brazil-lula-win-presidential-election-runoff-vote.html",
               "source": "CNBC World",
-              "summary": "法国因不平等和生活成本上涨爆发的大规模抗议已持续多个周末，并开始向金融市场传导。据 CNBC 报道，这轮骚乱将法国国债收益率推高至 24 年来的最高水平，投资者正在评估法国的预算、经济增长以及各行业面临的风险，而更多抗议活动还在酝酿之中。此前一个周末，法国各地估计有 41 万人参加示威，多个城市发生冲突，超过 1300 人被捕；示威还蔓延到米兰、罗马、马德里、里斯本等欧洲城市。国债收益率是政府融资成本的基准，快速上行通常意味着市场要求更高的风险补偿，也会传导至银行信贷、企业融资和欧元汇率。对关注美股与宏观的读者来说，这轮欧洲政治风险是否会通过债券、汇率和风险偏好渠道进一步扩散，是接下来需要跟踪的变量。"
+              "summary": "巴西左翼候选人卢拉赢得总统决选，博索纳罗据报拒绝承认败选"
             }
           ]
         }
