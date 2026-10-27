@@ -2,11 +2,141 @@
   "version": 1,
   "status": "ok",
   "aiSections": 4,
-  "generatedAt": "2026-10-26T13:24:07.140Z",
-  "notes": [
-    "源失败：BBC World（fetch failed）"
-  ],
+  "generatedAt": "2026-10-27T01:18:09.690Z",
+  "notes": [],
   "days": [
+    {
+      "date": "2026-10-27",
+      "generatedAt": "2026-10-27T01:18:09.689Z",
+      "quote": {
+        "updated": "2026-10-26 17:15:59",
+        "note": "美东时间",
+        "source": "yahoo",
+        "items": [
+          {
+            "name": "纳斯达克",
+            "symbol": "IXIC",
+            "price": 26169.38,
+            "change": -261.51,
+            "pct": -0.99
+          },
+          {
+            "name": "标普500",
+            "symbol": "GSPC",
+            "price": 7676.77,
+            "change": -13.96,
+            "pct": -0.18
+          }
+        ],
+        "vix": {
+          "close": 19.45,
+          "change": 0.42,
+          "pct": 2.21,
+          "date": "2026-10-23",
+          "prevClose": 19.03,
+          "level": {
+            "k": "normal",
+            "t": "正常"
+          },
+          "source": "cboe"
+        }
+      },
+      "marketView": "纳指收跌0.99%，标普500仅跌0.18%，两者差距明显，说明抛压集中在科技成长股，而不是整个市场在同步下挫。权重科技股走弱拉低了纳指，标普跌幅有限，则反映其余板块相对抗跌。VIX收在19.45，涨2.21%，仍处在「正常」区间，涨幅也不算剧烈，期权市场没有出现明显的避险抢购。 当日最值得注意的是AI链条上的两条消息。一是Meta推进约950亿美元股票相关融资，其中约350亿美元部分，英伟达、AMD和博通有可能认购；增发对现有股东意味着稀释，芯片厂商用现金买入客户股票，则把自身财务与下游算力需求绑得更紧。二是微软向约6万名员工提出自愿买断，背景是AI基础设施开支持续上升、人力预算被压缩。两件事都指向同一件事：AI投入的资金来源和成本分担方式正在变化。美联储10月按兵不动目前仍是市场预期，决议与发布会尚未落地。",
+      "hotStocks": [
+        {
+          "name": "特斯拉",
+          "symbol": "TSLA",
+          "price": 391.62,
+          "pct": 5.21
+        }
+      ],
+      "sections": [
+        {
+          "key": "ai",
+          "name": "AI 动态",
+          "items": [
+            {
+              "title": "GPT-6.1 Terra halves OpenAI's API prices and still gains ground on its larger models",
+              "url": "https://the-decoder.com/gpt-6-1-terra-halves-openais-api-prices-and-still-gains-ground-on-its-larger-models/",
+              "source": "The Decoder",
+              "summary": "OpenAI 发布了名为 GPT-6.1 Terra 的中端模型，最直接的改变是 API 价格降到了上一代的一半。按 The Decoder 的报道，分析人士认为它在“每美元智能”这个维度上立了新标准，尤其是在日常计算任务和让 AI 操控电脑这类场景里；同时，这个中端型号的能力仍在向自家更大的模型靠近。这条消息值得关注的地方在于定价而非参数：过去一年前沿模型的竞争主要看谁更强，而中端模型连续降价意味着同样的钱能跑更多任务，对做 Agent、批量调用 API 的开发者来说成本结构会明显变化。对学生和独立开发者而言，可承受的试验次数变多，很多原本因为调用费用而搁置的想法变得可行。报道没有给出具体价格数字和评测分数，实际能力提升幅度仍需看第三方测评。"
+            },
+            {
+              "title": "Anthropic opens its books for Wall Street, showing record revenue and mounting obligations",
+              "url": "https://the-decoder.com/anthropic-opens-its-books-for-wall-street-showing-record-revenue-and-mounting-obligations/",
+              "source": "The Decoder",
+              "summary": "Anthropic 成为第一家正式向美国 SEC 递交 S-1 的大型 AI 实验室，计划在纳斯达克上市，股票代码为“ANT”。文件里的数字相当亮眼：季度营收 116 亿美元，首次实现营业利润，老客户的支出同比增长到原来的九倍。但同一份文件也暴露了另一面——公司背负约 8000 亿美元的长期算力承诺。这组数字放在一起，勾勒出当下头部 AI 公司的典型财务结构：收入增长快，但要提前把未来多年的算力买断，形成远超年收入的长期义务。值得关注的是，Anthropic 是第一家把这类账本摊开给公开市场看的公司，它的估值逻辑、毛利结构和算力合同怎么被投资者定价，会成为后面排队上市的 AI 公司的参照系。"
+            },
+            {
+              "title": "OpenAI announces three big science discoveries and a new way to work with academics",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1019143/openai-eth-kaseya-science-math-physics",
+              "source": "The Verge AI",
+              "summary": "OpenAI 公布了在数学、计算机科学和物理三个方向上的三项“重大”发现，并同时推出了一套与学术界合作的新机制：由外部专家担任所谓“shepherd（引导者）”，来把关研究结果。背景是，不到一个月前，OpenAI 曾一次性公开发布数百篇手稿，声称其中包含若干长期悬而未决的数学问题的解法，当时外界的主要质疑正集中在结果的可靠性上。这次引入外部专家把关，可以看作是对上述质疑的一种回应，把“模型给出结论”和“专家验证结论”分开处理。值得关注的是，如果 AI 生成的科研结果需要一套外部的验证与署名机制，那么学术界的同行评审、作者归属和贡献认定都会面临新的问题，这也是所有宣称“AI 做出科学发现”的公司都绕不开的一步。"
+            },
+            {
+              "title": "Meta plans up to $95 billion in stock sales to fund its AI buildout",
+              "url": "https://the-decoder.com/meta-plans-up-to-95-billion-in-stock-sales-to-fund-its-ai-buildout/",
+              "source": "The Decoder",
+              "summary": "Meta 计划通过增发股票募集最多 950 亿美元，用于其 AI 基础设施的建设。The Decoder 的报道没有披露发行时间表、承销安排和具体投向的细分，只说明这笔钱的用途是 AI 基建。这条消息值得注意的地方在于融资方式本身：在过去两年这轮 AI 基建扩张中，巨头主要靠自有现金流和债券市场承担数据中心与算力开支，而增发新股会直接稀释现有股东权益，通常意味着公司判断投入规模已经超出内部资金能覆盖的范围。对关注美股的人来说，后续需要看的是这笔募资是否伴随资本开支指引的上调，以及市场是否愿意为持续扩大的基建投入继续买单。由于公开信息有限，具体影响还要等正式文件才能判断。"
+            }
+          ]
+        },
+        {
+          "key": "tech",
+          "name": "科技突破",
+          "items": [
+            {
+              "title": "A 1,000-mile cloud on Mars may reveal physics never seen in nature",
+              "url": "https://arstechnica.com/science/2026/10/a-1000-mile-cloud-on-mars-may-reveal-physics-never-seen-in-nature/",
+              "source": "Ars Technica",
+              "summary": "Ars Technica 报道，一项新模型提出，火星上一条绵延约 1000 英里的云，可能涉及一种在自然界从未被直接观测到的成冰物理过程。摘要没有给出模型的具体机制、研究团队和发表渠道，因此目前只能确认这是一项针对火星云与冰形成方式的建模研究，结论仍待观测检验。背景在于，火星大气条件与地球差别很大，云和冰如何形成长期是行星科学中的难点；而“自然界从未直接观测到”这一表述，意味着相关物理过程在地球上找不到直接对照。若模型最终被观测证实，其意义不限于火星本身：它可能提示存在一类此前只在理论或实验条件下出现的成冰路径，从而拓展人类对云物理和行星大气的认知边界。对读者而言，这条消息的价值在于它属于基础科学层面的可能性扩展，并非产品迭代；但也要注意，在独立观测验证之前，它仍只是一个模型假说。"
+            },
+            {
+              "title": "NASA updates lander plans for Moon landings, finally solves long-festering Orion issue",
+              "url": "https://arstechnica.com/space/2026/10/nasa-updates-lander-plans-for-moon-landings-finally-solves-long-festering-orion-issue/",
+              "source": "Ars Technica",
+              "summary": "Ars Technica 报道，NASA 更新了它的月球着陆器方案，并表示终于解决了猎户座（Orion）飞船上长期存在的一个问题。NASA 在表态中说：“我们有授权、有资源，也有利益相关方的支持。”摘要没有披露着陆器方案的具体调整内容，也没有说明 Orion 的问题究竟是什么、如何解决，所以无法判断这次更新的技术分量。可以确认的是，Orion 是 NASA 载人深空任务的核心飞船，其遗留问题长期拖慢登月计划的推进节奏；官方用“终于解决”（finally solves）来描述，说明该问题此前已存在相当长时间。值得关注的原因在于，载人登月是由运载、飞船、着陆器等多个环节相互配合的系统工程；任何一个长期悬而未决的部件问题都会向后传导，压缩整个计划的时间与预算余量。如果这次更新确实落地，就意味着后续任务可以少一个已知风险点。但截至目前，公开信息只有官方表态，缺少技术细节与时间表，实际影响仍需观察。"
+            }
+          ]
+        },
+        {
+          "key": "us",
+          "name": "美股行情",
+          "items": [
+            {
+              "title": "Federal Reserve is likely to hold interest rates steady in October. Here's what that means for consumers",
+              "url": "https://www.cnbc.com/2026/10/26/fed-decision-expectations-october-meeting.html",
+              "source": "CNBC",
+              "summary": "CNBC 报道，市场预期美联储将在本周的 10 月议息会议上维持利率不变，隔夜利率保持在当前水平。报道同时讨论了这一决定对消费者意味着什么。 对美股而言，按兵不动意味着短期利率路径没有新增变化，市场关注点会转向会后声明措辞，以及对之后会议的暗示。对普通消费者来说，联邦基金利率不变意味着与政策利率挂钩的信用卡和浮动利率贷款等借贷成本短期内不会下降，存款类产品的收益率也大致维持。 需要说明的是，这里说的是「预期」，不是已经公布的决定；候选信息没有提供当前利率区间、投票结果或点阵图等细节，也没有给出最新的通胀和就业数据。因此这条消息更接近会前前瞻，真正的行情反应要等决议和发布会之后。"
+            },
+            {
+              "title": "Nvidia, AMD and Broadcom could buy Meta shares as part of $35 billion stock offering",
+              "url": "https://www.marketwatch.com/story/nvidia-amd-and-broadcom-could-buy-meta-shares-as-part-of-35-billion-stock-offering-d816fec2?mod=mw_rss_topstories",
+              "source": "MarketWatch",
+              "summary": "MarketWatch 援引报道称，Meta 正在推进总额约 950 亿美元的股票相关融资安排，其中约 350 亿美元的部分，英伟达、AMD 和博通有可能买入 Meta 的股票。相关交易预计延续到明年年初。 Meta 是标普 500 的权重股，这一规模的股权融资在大型科技公司中并不常见，而且让上游芯片供应商成为客户股权的潜在买家，这种结构本身就值得注意。对现有股东而言，增发意味着股权稀释；对芯片厂商而言，把现金投入客户股票，会在财务上更深度地绑定下游算力需求。 报道给出的信息仅限于此：融资总额、其中一笔的规模、潜在认购方以及时间跨度；具体定价、条款和最终认购规模都没有披露。这件事之所以进入美股视野，是因为它同时牵动 AI 算力链条上的多家大市值公司。"
+            },
+            {
+              "title": "Microsoft offers voluntary buyouts to 60,000 employees as AI leads to efficiency push",
+              "url": "https://www.cnbc.com/2026/10/26/microsoft-msft-voluntary-buyouts.html",
+              "source": "CNBC",
+              "summary": "CNBC 报道，微软向约 6 万名员工提出自愿离职买断方案。报道把这一举措放在公司试图平衡大规模 AI 基础设施投入与资本效率的背景下：一边是数据中心和算力的持续资本开支，一边是对人力成本的控制。 微软是美股权重股之一，其费用端的变化会被投资者用来判断 AI 投入的回报周期。买断属于一次性成本，但能压低长期人力开支，市场通常会同时关注两点：短期利润受多大影响，以及 AI 是否真能替代部分岗位的产出。报道没有披露买断的适用范围、补偿标准和具体时间表，也没有给出对财报的影响金额。 对读者来说，值得留意的是这类以提高效率为名的动作正在从中小公司扩散到市值最大的科技公司，AI 资本开支持续上升的同时，人力预算成为被压缩的一端。"
+            }
+          ]
+        },
+        {
+          "key": "world",
+          "name": "时政",
+          "items": [
+            {
+              "title": "Trump says he'll soon decide whether to ‘make a deal’ with Iran or ‘finish it off'",
+              "url": "https://www.cnbc.com/2026/10/26/us-iran-war-hormuz.html",
+              "source": "CNBC World",
+              "summary": "美国总统特朗普表示，他将很快决定是與伊朗「达成协议」，还是「把它彻底解决掉」。他称自己正在两者之间权衡：一边是谈判达成协议，另一边是再次采取军事行动，并提到中东地区的紧张局势正在升级。这番表态没有给出时间表，也没有说明协议可能包含哪些具体内容，因此外界目前只能从措辞判断美方下一步的取向。值得关注的是这类表态对能源市场的影响。中东是全球原油生产和出口的核心区域，任何涉及伊朗的军事选项都会直接牵动市场对供应中断的预期，进而影响油价和全球风险资产定价。措辞中「再次」一词也暗示此前已有过军事行动，若局势朝升级方向走，影响不会局限于地区本身，还会通过能源价格传导到通胀和各国货币政策预期上。对于关注宏观的读者，这是需要跟踪的一条线索。"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-10-26",
       "generatedAt": "2026-10-26T13:24:07.107Z",
