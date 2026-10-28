@@ -173,6 +173,7 @@ button{cursor:pointer;border:0;background:none}
 .empty{
   padding:20px;text-align:center;color:var(--ink3);border:2px dashed var(--line2);
 }
+#plist .empty{grid-column:1/-1}
 
 .side{
   border-left:2px solid var(--ink);background:var(--band);
@@ -345,6 +346,15 @@ select.inp{
 }
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 
+.welcome{
+  border:2px solid var(--orange);background:var(--card);
+  box-shadow:3px 3px 0 0 var(--shadow);padding:13px 15px;margin-bottom:18px;
+}
+.welcome h3{font-size:12px;color:var(--orange-d);letter-spacing:1px;margin-bottom:8px}
+.welcome p{font-size:12px;line-height:1.85;color:var(--ink2);margin-bottom:8px}
+.welcome p:last-of-type{margin-bottom:10px}
+.welcome button{padding:3px 12px;font-size:12px}
+
 .news-days{display:flex;gap:6px;margin:14px 0 16px;flex-wrap:wrap}
 .news-days button{
   background:var(--card);border:2px solid var(--ink);box-shadow:2px 2px 0 0 var(--shadow);
@@ -467,6 +477,13 @@ select.inp{
         </div>
       </div>
       <div class="rule"></div>
+
+      <div class="welcome" id="welcome" hidden>
+        <h3>这是你自己的空工作台</h3>
+        <p>项目、期限、弹药、成长记录，全部存在你这台电脑的浏览器里。不上传、不同步，别人打开这个网址也看不到你的任何内容。</p>
+        <p>从下面「今日焦点」写一句话开始，或者点右上角「加期限」记第一件要交的东西。</p>
+        <button class="px-btn" id="welcome-ok">知道了</button>
+      </div>
 
       <div class="focus">
         <div class="lb">今日焦点</div>
@@ -638,41 +655,11 @@ function seed(){
   return {
     version:1,
     focus:{text:'',date:''},
-    projects:[
-      {id:'p_cet4',name:'四级备考',lane:'study',goal:'12 月通过四级',stage:'active',next:'真题写译做第 3 套',files:[],sessions:[],timeline:[],updated:addD(-2)},
-      {id:'p_net',name:'计算机网络',lane:'study',goal:'吃透王道网原',stage:'active',next:'传输层错题重做',files:[],sessions:[],timeline:[],updated:addD(-1)},
-      {id:'p_sched',name:'课程表 App',lane:'study',goal:'一个干净无广告的课表',stage:'idea',next:'定技术栈',files:[],sessions:[],timeline:[],updated:addD(-4)},
-      {id:'p_term',name:'本学期课业',lane:'study',goal:'不挂科',stage:'active',next:'把各科作业 DDL 录进雷达',files:[],sessions:[],timeline:[],updated:addD(-3)},
-      {id:'p_galgame',name:'霍格沃茨 galgame',lane:'create',goal:'三幕完整可玩',stage:'active',next:'Act II 剧本分场',files:[],sessions:[],timeline:[],updated:addD(-6)},
-      {id:'p_hanatoki',name:'花と時',lane:'create',goal:'动画少女年代史',stage:'active',next:'修 480px 断点',files:[],sessions:[],timeline:[],updated:ymd()},
-      {id:'p_abbey',name:'余烬修道院',lane:'create',goal:'手抄本风格站点',stage:'paused',next:'补第三章内容',files:[],sessions:[],timeline:[],updated:addD(-9)},
-      {id:'p_hexo',name:'Hexo 博客',lane:'create',goal:'长期写碎碎念',stage:'active',next:'换掉默认首页大图',files:[],sessions:[],timeline:[],updated:addD(-1)},
-      {id:'p_games',name:'小游戏集',lane:'create',goal:'几个能玩的小玩意',stage:'idea',next:'挑一个做成完整版',files:[],sessions:[],timeline:[],updated:addD(-8)},
-      {id:'p_codex',name:'Codex 与中转',lane:'tinker',goal:'稳定的模型链路',stage:'active',next:'熔断时切备用模型',files:[],sessions:[],timeline:[],updated:addD(-2)},
-      {id:'p_env',name:'前端环境与工具链',lane:'tinker',goal:'顺手不折腾',stage:'active',next:'整理 VS Code 配置',files:[],sessions:[],timeline:[],updated:addD(-5)},
-      {id:'p_bench',name:'本工作台',lane:'tinker',goal:'每天都会打开',stage:'active',next:'v0.1 作战台已上线',files:[],sessions:[],timeline:[],updated:ymd()}
-    ],
-    ddls:[
-      {id:'d_cet4',title:'四级考试',lane:'study',date:'2026-12-19',type:'soft',projectId:'p_cet4',done:false},
-      {id:'d_net',title:'计算机网络 章节作业',lane:'study',date:addD(6),type:'hard',projectId:'p_net',done:false},
-      {id:'d_sched',title:'课程表 App 原型',lane:'study',date:addD(11),type:'hard',projectId:'p_sched',done:false}
-    ],
-    arsenal:[
-      {id:'a_folia',type:'repo',title:'folia',body:'本地音乐播放器，界面好看，适合桌面常驻。',url:'',tags:['音乐','桌面'],star:true,created:'2026-10-15'},
-      {id:'a_base44',type:'repo',title:'base44',body:'以色列程序员做的 AI 建站，自然语言生成整站。',url:'',tags:['AI','建站'],star:false,created:'2026-10-17'},
-      {id:'a_ark',type:'repo',title:'Ark Pixel Font',body:'本工作台在用的中文像素字体，zh_hans 单包 553KB。',url:'https://github.com/TakWolf/ark-pixel-font',tags:['字体','像素'],star:true,created:ymd()}
-    ],
-    growth:{
-      logs:[
-        {id:'g_1',date:'2026-10-20',text:'搭起 Hexo 博客，本地能预览了',projectId:'p_hexo'},
-        {id:'g_2',date:ymd(),text:'工作台定了橙色像素风，字体和图标全部核实可用',projectId:'p_bench'}
-      ],
-      skills:[
-        {id:'s_front',name:'前端工程',evidence:['花と時（响应式 + 动画）','余烬修道院（排版）'],gap:'没碰过状态管理和构建工具',nextStep:'把工作台本身模块化重构一遍'},
-        {id:'s_write',name:'剧情写作',evidence:['galgame Act I 119 行台词'],gap:'长线节奏把控还弱',nextStep:'把 Act II 拆成三幕结构'},
-        {id:'s_net',name:'网络协议',evidence:['王道网原 前四章'],gap:'传输层细节不熟',nextStep:'错题重做一遍'}
-      ]
-    }
+    projects:[],
+    ddls:[],
+    arsenal:[],
+    growth:{logs:[],skills:[]},
+    fresh:true
   };
 }
 
@@ -721,6 +708,14 @@ function boot(){
   try{ localStorage.setItem(KEY,JSON.stringify(DB)); }catch(e){}
   try{ NEWS=JSON.parse(localStorage.getItem('workbench.news')||'null'); }catch(e){ NEWS=null; }
   renderAll();
+
+  // 首次打开（本地没有任何数据）时给一段说明，关掉后不再出现
+  try{
+    if(DB.fresh && !localStorage.getItem('workbench.welcomed')){
+      const w=document.getElementById('welcome');
+      if(w) w.hidden=false;
+    }
+  }catch(e){}
 
   // 后台静默：本地存储原本是空的，就看看 IndexedDB 里有没有备份
   if(!raw){
@@ -832,14 +827,14 @@ function renderProjects(){
   document.getElementById('p-count').textContent=DB.projects.length+' 个项目 · '+act+' 个在跑';
   const order={study:0,create:1,tinker:2};
   const list=[...DB.projects].sort((a,b)=>order[a.lane]-order[b.lane]);
-  document.getElementById('plist').innerHTML=list.map(p=>
+  document.getElementById('plist').innerHTML=list.length?list.map(p=>
     '<div class="pcard" data-proj="'+p.id+'">'+
       '<span class="lane" style="background:'+LANES[p.lane].c+'"></span>'+
       '<button class="del" data-del-proj="'+p.id+'" title="删除项目">×</button>'+
       '<div class="nm">'+esc(p.name)+'<span class="stage '+p.stage+'">'+STAGES[p.stage]+'</span></div>'+
       '<div class="nx">'+esc(p.next||'（没写下一步）')+'</div>'+
       '<div class="ft"><span>'+LANES[p.lane].nm+'</span><span>'+esc(p.updated||'')+'</span></div>'+
-    '</div>').join('');
+    '</div>').join(''):'<div class="empty">还没有项目。点右上角「新项目」建第一个，它会出现在作战台的泳道里。</div>';
   document.querySelectorAll('[data-proj]').forEach(el=>{
     el.onclick=()=>editProject(el.dataset.proj);
   });
@@ -1391,6 +1386,16 @@ document.addEventListener('keydown',e=>{
 });
 
 document.querySelectorAll('[data-ic]').forEach(el=>{el.outerHTML=ic(el.dataset.ic);});
+
+(function(){
+  const ok=document.getElementById('welcome-ok');
+  if(ok) ok.onclick=()=>{
+    document.getElementById('welcome').hidden=true;
+    try{ localStorage.setItem('workbench.welcomed','1'); }catch(e){}
+    if(DB&&DB.fresh){ delete DB.fresh; save(); }
+  };
+})();
+
 boot();
 </script>
 </body>
