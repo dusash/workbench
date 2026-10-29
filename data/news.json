@@ -2,9 +2,128 @@
   "version": 1,
   "status": "ok",
   "aiSections": 4,
-  "generatedAt": "2026-10-28T01:03:45.698Z",
+  "generatedAt": "2026-10-29T01:39:54.007Z",
   "notes": [],
   "days": [
+    {
+      "date": "2026-10-29",
+      "generatedAt": "2026-10-29T01:39:54.006Z",
+      "quote": {
+        "updated": "2026-10-28 17:15:59",
+        "note": "美东时间",
+        "source": "yahoo",
+        "items": [
+          {
+            "name": "纳斯达克",
+            "symbol": "IXIC",
+            "price": 26549.85,
+            "change": -153.01,
+            "pct": -0.57
+          },
+          {
+            "name": "标普500",
+            "symbol": "GSPC",
+            "price": 7743.98,
+            "change": -13.19,
+            "pct": -0.17
+          }
+        ],
+        "vix": {
+          "close": 16.91,
+          "change": -0.61,
+          "pct": -3.48,
+          "date": "2026-10-28",
+          "prevClose": 17.52,
+          "level": {
+            "k": "normal",
+            "t": "正常"
+          },
+          "source": "cboe"
+        }
+      },
+      "marketView": "纳指跌0.57%，标普500跌0.17%，指数跌幅有限，但内部结构分化剧烈：微软财报营收利润双超预期、Azure云收入同比增长48%，股价涨约4%；Alphabet营收利润近四年来首次双双不及预期，并称2026年资本开支维持不变，股价跌10%。一涨一跌在权重层面部分对冲，指数小跌掩盖了大型科技股同步走势的瓦解和个股重新定价。VIX收于16.91，较前一日17.52回落3.48%，仍处正常区间，说明这轮巨头分化尚未引发系统性避险。今天最值得注意的驱动是AI资本开支节奏：微软开支低于预期被解读为基础设施交付周期拉长，CoreWeave、Nebius、IREN等新型云服务商随之下跌；Alphabet则因开支计划与搜索变现担忧被抛售。美联储维持利率不变符合预期，会后10年期美债收益率小幅走高。",
+      "hotStocks": [],
+      "sections": [
+        {
+          "key": "ai",
+          "name": "AI 动态",
+          "items": [
+            {
+              "title": "Google Deepmind releases Gemini 4 Carbon just two weeks after Argon with gains across the board",
+              "url": "https://the-decoder.com/google-deepmind-releases-gemini-4-carbon-just-two-weeks-after-argon-with-gains-across-the-board/",
+              "source": "The Decoder",
+              "summary": "Google DeepMind 发布了新一代前沿模型 Gemini 4 Carbon，距离上一版 Gemini 4 Argon 只隔了两周。据 The Decoder 报道，Carbon 在 Artificial Analysis Intelligence Index v5 上拿到 59 分，排名第一；The Verge 提到 Claude Opus 5.5 和 GPT-6 Astra 排在其后。Google 表示这一代在编码、agent 任务和网络安全三方面都有提升，模型是面向长时间运行的 agent 工作流和完整的网络防御流程设计的。也正因为安全相关能力较强，初期访问权限只开放给部分安全专家，而不是全面放开。值得关注的点在于节奏：两周内连续推出两版前沿模型，说明头部实验室的迭代周期已经压缩到以周计；同时把「网络安全」作为主打能力并限制开放，也反映出强攻防能力模型的发布方式正在从「先上线再评估」转向「先小范围交付」。"
+            },
+            {
+              "title": "Google opens Android development to third-party AI agents and unveils new Gemini APIs",
+              "url": "https://the-decoder.com/google-opens-android-development-to-third-party-ai-agents-and-unveils-new-gemini-apis/",
+              "source": "The Decoder",
+              "summary": "Google 宣布把 Android Studio 向第三方 AI agent 开放。据 The Decoder 报道，通过新的「Bring Your Own Agent」功能，这个官方开发环境现在支持 40 多个编码 agent，其中包括 Anthropic 的 Claude Agent 和 OpenAI 的 Codex——也就是说，开发者可以在 Google 自家的 IDE 里直接调用竞争对手的模型产品。Google 称新的终端工具能让 agent 完成界面类任务的速度提升 77%，同时 token 消耗最多降低到原来的三分之一。此外 Google 还公布了新的 Gemini API，Android 开发流程本身也在向 agent 为中心的方向调整。这件事的背景是 agent 正在改变开发者获取工具的入口：如果开发者习惯在 IDE 里挂一个 agent，那么 IDE 由谁提供、agent 由谁提供就成了两件可以分开的事。Google 选择主动开放而不是封闭生态，等于承认自己无法垄断编码 agent 这一层。"
+            },
+            {
+              "title": "Nvidia's open Nemotron 3.5 Transcribe combines transcription, translation, and speaker recognition",
+              "url": "https://the-decoder.com/nvidias-open-nemotron-3-5-transcribe-combines-transcription-translation-and-speaker-recognition/",
+              "source": "The Decoder",
+              "summary": "Nvidia 发布了开源语音识别模型 Nemotron 3.5 Transcribe。据 The Decoder 报道，这个模型同时处理转录、说话人识别和翻译三类任务，用户以文本 prompt 的形式给出指令，而不需要为每种任务单独训练模型。Nvidia 称它在多项基准测试上领先，且活跃参数只有最强开源对手的约六分之一，意味着同等效果下推理成本明显更低。配套还放出了超过 80 万小时的语音数据集和微调工具。TechCrunch 补充说，该模型目前只能处理录音文件，不支持实时音频，因此短期内的落点更偏向会议记录和医疗转写这类离线场景，实时语音仍由 ElevenLabs 这类厂商占据。对关注开源生态的读者来说，这条的价值在于：Nvidia 在卖算力之外，正在用「模型+数据+工具链」的方式把自己嵌进语音应用的开发生态。"
+            },
+            {
+              "title": "Microsoft recorded $10 billion in revenue from OpenAI",
+              "url": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/",
+              "source": "TechCrunch AI",
+              "summary": "微软披露，在截至 9 月 30 日的季度里，从与 OpenAI 的商业安排中获得了 100 亿美元收入，其中包含收入分成款项。TechCrunch 指出，这一数字凸显了双方合作关系在财务上的高度相互依赖。背景是微软此前从未以这种口径拆分过来自 OpenAI 的收入，而这笔钱出现在微软整体业绩创新高的季度里——同一份财报显示微软季度营收 923 亿美元，同比增长 19%，已是连续第十个季度创纪录。值得关注的地方在于结构：OpenAI 一边是微软最大的模型供应方，一边又是微软云与产品收入的来源之一，两者的账目越缠越紧。对读者判断 AI 泡沫与否来说，这类「AI 收入到底落在谁口袋里、以什么形式落袋」的披露，比笼统的资本开支数字更有信息量。"
+            }
+          ]
+        },
+        {
+          "key": "tech",
+          "name": "科技突破",
+          "items": [
+            {
+              "title": "How solid-state transformers could help power the AI boom",
+              "url": "https://www.technologyreview.com/2026/10/27/1147684/solid-state-transformers/",
+              "source": "MIT Tech Review",
+              "summary": "MIT科技评论刊文讨论固态变压器能否支撑AI带来的用电增长。文章指出，变压器是电网里关键却几乎看不见的部件，负责把电力高效地输送过长距离，但制造复杂、长期供应紧张，而且基本设计大约一百年没有大变过，已经到了需要升级的时候。与此同时，全球正在竞相满足AI数据中心快速上升的电力需求，电网扩容成了瓶颈。之所以值得关注，是因为固态变压器不是又一款产品迭代，而是对电网最基础器件的一次路线替换：它被期待用电力电子方式更灵活地控制电压和功率流向，从而在更小的占地面积下提高供电能力，并减少对传统铁芯、铜材和漫长交付周期的依赖。目前它仍处在从示范走向规模应用的阶段，散热、成本与可靠性是主要障碍。这条路线能否走通，直接关系到AI算力扩张的电力天花板会被抬到多高。"
+            }
+          ]
+        },
+        {
+          "key": "us",
+          "name": "美股行情",
+          "items": [
+            {
+              "title": "Microsoft stock jumps 4% as cloud growth drives earnings and revenue beat",
+              "url": "https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html",
+              "source": "CNBC",
+              "summary": "微软公布最新季度财报，营收和利润均超出华尔街预期，其中Azure云业务收入同比增长48%，带动股价盘后上涨约4%，进入历史新高区间。同期另有报道指出，微软的资本开支低于市场预期，这被解读为其基础设施合作方交付产能所需时间更长，CoreWeave、Nebius、IREN等新型云服务商（neocloud）股价随之下跌。市场关注的核心是，微软能否在快速增长的同时控制支出；相关分析认为，这轮财报向投资者展示了这种可能性，这也是股价走高的重要原因。作为市值权重股，微软的业绩同时影响大盘指数和AI算力产业链的定价，其资本开支节奏已成为观察AI基础设施建设速度的重要指标。"
+            },
+            {
+              "title": "Alphabet sinks 10% as it holds 2026 capex unchanged, expects significant increase in 2027",
+              "url": "https://www.cnbc.com/2026/10/28/alphabet-googl-earnings-q3-2026.html",
+              "source": "CNBC",
+              "summary": "Alphabet公布的最新季度财报营收和利润均低于市场预期，为近四年来首次两项指标同时未达预期，股价随即下跌10%，报道称这可能是多年来最大单日跌幅。公司同时表示2026年资本开支维持不变，并预计2027年将显著增加。财报中云业务收入实现翻倍，但仍未能打消华尔街的疑虑，投资者越来越担心AI正在削弱公司从搜索查询中获利的能力。背景是，大型科技股此前走势高度同步，近期这种相关性开始瓦解，个股表现分化加剧。Alphabet的搜索广告是公司最核心的现金流来源，市场对其在AI时代变现能力的重新定价，会直接影响到整个大型科技股板块的估值逻辑。"
+            },
+            {
+              "title": "Here are five key takeaways from the Fed rate decision and Warsh news conference",
+              "url": "https://www.cnbc.com/2026/10/28/fed-rate-decision-warsh-takeaways.html",
+              "source": "CNBC",
+              "summary": "美联储在本次联邦公开市场委员会会议上决定维持利率不变，这一利率决议结果符合市场预期，但会后Warsh的新闻发布会出现了几处意外。决议公布前后，10年期美国国债收益率小幅走高，反映交易员在政策落地后调整仓位。美联储基准利率对美国消费者的借贷成本有广泛影响，包括与房贷、信用卡、汽车贷款和储蓄账户相关的利率，因此在利率维持不变的情况下，普通家庭的实际融资成本结构基本延续此前状态。此外，美国财政部长Bessent在采访中表示，如果美联储再次加息，“未必”是一个错误。在当前市场对政策路径分歧加大的背景下，美联储的措辞与官员表态，仍是影响美股大盘走向的关键变量之一。"
+            }
+          ]
+        },
+        {
+          "key": "world",
+          "name": "时政",
+          "items": [
+            {
+              "title": "Fed holds rates steady despite concerns over inflation",
+              "url": "https://www.cnbc.com/2026/10/28/fed-interest-rate-decision-october-2026.html",
+              "source": "CNBC World",
+              "summary": "美联储在本次联邦公开市场委员会（FOMC）会议上决定维持利率不变，尽管对通胀仍存担忧。12名有投票权的委员中有2人投下反对票，两人都主张加息25个基点，这一分歧表明委员会内部对政策方向的判断并不一致。会后举行的沃什（Warsh）记者会也出现若干意外之处；财政部长贝森特在接受CNBC采访时则表示，如果美联储再度加息，「未必」是个错误。背景上，市场此前普遍预期本次会议按兵不动，利率决定本身符合预期，但两票反对以及官员对进一步加息的公开讨论，把焦点重新拉回通胀是否再度抬头。对读者而言，利率路径直接影响美股估值，尤其是对利率敏感的科技成长股；若加息预期升温，美元、美债收益率与全球资金流向都会随之调整，这是需要持续跟踪的宏观变量。"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-10-28",
       "generatedAt": "2026-10-28T01:03:45.696Z",
@@ -257,131 +376,6 @@
               "url": "https://www.cnbc.com/2026/10/26/us-iran-war-hormuz.html",
               "source": "CNBC World",
               "summary": "美国总统特朗普表示，他将很快决定是與伊朗「达成协议」，还是「把它彻底解决掉」。他称自己正在两者之间权衡：一边是谈判达成协议，另一边是再次采取军事行动，并提到中东地区的紧张局势正在升级。这番表态没有给出时间表，也没有说明协议可能包含哪些具体内容，因此外界目前只能从措辞判断美方下一步的取向。值得关注的是这类表态对能源市场的影响。中东是全球原油生产和出口的核心区域，任何涉及伊朗的军事选项都会直接牵动市场对供应中断的预期，进而影响油价和全球风险资产定价。措辞中「再次」一词也暗示此前已有过军事行动，若局势朝升级方向走，影响不会局限于地区本身，还会通过能源价格传导到通胀和各国货币政策预期上。对于关注宏观的读者，这是需要跟踪的一条线索。"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-10-26",
-      "generatedAt": "2026-10-26T13:24:07.107Z",
-      "quote": {
-        "updated": "2026-10-23 17:15:59",
-        "note": "美东时间",
-        "source": "tencent",
-        "items": [
-          {
-            "name": "纳斯达克",
-            "symbol": "IXIC",
-            "price": 25955.34,
-            "change": -53.52,
-            "pct": -0.21
-          },
-          {
-            "name": "标普500",
-            "symbol": "INX",
-            "price": 7623.68,
-            "change": -39.75,
-            "pct": -0.52
-          }
-        ],
-        "vix": {
-          "close": 19.45,
-          "change": 0.42,
-          "pct": 2.21,
-          "date": "2026-10-23",
-          "prevClose": 19.03,
-          "level": {
-            "k": "normal",
-            "t": "正常"
-          },
-          "source": "cboe"
-        }
-      },
-      "marketView": "纳指跌0.21%，标普500跌0.52%，两大指数同向走弱，说明回调来自整体风险偏好而非单一板块；标普跌幅更大，显示资金集中在AI权重股上，其余部分承压。VIX收于19.45，涨2.21%，前一日19.03，仍处「正常」区间，波动率抬升有限，期权市场未出现明显恐慌定价。 今日最值得注意的是AI融资链条上的两条消息。Meta宣布拟通过股票发行筹集950亿美元，用于AI基础设施与「超级智能」投入，英伟达、AMD、博通可能认购其中最多50亿美元：一方面带来近千亿美元量级的股票供给，另一方面使芯片厂商与下游客户的资金关系更为紧密。同时，马斯克称超过200家neocloud公司将面临「孔雀鱼级别的死亡」，相关公司股价下跌，其债务驱动的扩张模式此前已受质疑。Verizon因关键用户增长指标达分析师预期两倍以上而上涨。",
-      "hotStocks": [],
-      "sections": [
-        {
-          "key": "ai",
-          "name": "AI 动态",
-          "items": [
-            {
-              "title": "Can AI help solve the COBOL code crisis?",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1018434/cobol-migration-legacy-code-openai-anthropic",
-              "source": "The Verge AI",
-              "summary": "据 The Verge 报道，OpenAI 周一宣传其最新 AI 模型在相关任务上取得了「实质性改进」，指向的是长期困扰各行业的 COBOL 老代码问题。COBOL 是上世纪遗留的编程语言，美国国税局、银行、航空公司以及全球多国政府基础设施至今仍依赖由它支撑的系统运行，这些系统年久失修，却因为担心牵一发动全身而无人敢改。OpenAI 此番表态意味着它认为自家模型有能力介入这类遗留系统的理解与改造。值得关注的地方在于，遗留系统改造长期是人力密集、风险极高的领域，如果 AI 真能承担其中一部分工作，受影响的将不只是软件行业，还包括依赖这些系统的公共服务与金融基础设施。不过报道目前只提到 OpenAI 的说法，尚未给出具体的改造案例或量化结果。"
-            },
-            {
-              "title": "Nvidia open-sources Flora to make robot video labeling 125x cheaper than GPT-6 Astra",
-              "url": "https://the-decoder.com/nvidia-open-sources-flora-to-make-robot-video-labeling-125x-cheaper-than-gpt-6-astra/",
-              "source": "The Decoder",
-              "summary": "英伟达开源了名为 Flora 的数据引擎，用于给机器人视频做标注。据 The Decoder 报道，用 Flora 标注一小时机器人视频的成本是 72 美分，而使用 GPT-6 Astra 需要 88 美元，前者约为后者的 1/125，同时在质量评分上还略高一些。Flora 建立在三个经过微调的 Qwen3.5 模型之上，在识别机器人动作错误方面比现有竞品更可靠，但在描述性准确性上有时仍有欠缺。背景是机器人训练高度依赖带标注的视频数据，而人工标注昂贵且缓慢，成本一直是规模化的瓶颈。英伟达把 Flora 定位为其掌控整条机器人价值链战略的关键一环。对行业而言，这意味着机器人数据标注的门槛可能大幅下降，而英伟达正试图从芯片延伸到数据与工具层。"
-            },
-            {
-              "title": "OpenAI offers discounts up to 90 percent to poach Anthropic's biggest customers",
-              "url": "https://the-decoder.com/openai-offers-discounts-up-to-90-percent-to-poach-anthropics-biggest-customers/",
-              "source": "The Decoder",
-              "summary": "据 The Decoder 报道，OpenAI 正以最高 90% 的折扣挖走 Anthropic 的大客户。Rippling、Replit、DataCamp 等公司表示，在从 Anthropic 切换到 OpenAI 之后，AI 成本最多下降了 90%。报道同时提到，Anthropic 的增长已经放缓，而 OpenAI 是在用自身利润率换取市场份额。背景是模型能力差距缩小后，企业客户的选择越来越取决于价格，而 Deepseek 等中国厂商的报价进一步压低了整个市场的价格水平。值得关注的是，这种以折扣换份额的做法会同时影响两家公司的收入结构：客户短期受益，但模型厂商的盈利空间被压缩，行业可能进入一轮价格竞争。报道未披露折扣的具体适用条件与合同期限。"
-            },
-            {
-              "title": "Anthropic says one AI agent beats many subagents now that models can handle complexity alone",
-              "url": "https://the-decoder.com/anthropic-says-one-ai-agent-beats-many-subagents-now-that-models-can-handle-complexity-alone/",
-              "source": "The Decoder",
-              "summary": "Anthropic 提出，随着模型自身处理复杂任务的能力提升，过去流行的「多个子 agent 协作」架构可能已经不再必要，企业应当评估能否把多个子 agent 合并成一个按需加载上下文的单一 agent。据 The Decoder 报道，在一次架构对比中，单 agent 方案的运行速度约为多子 agent 方案的两倍。背景是过去一年里，多 agent 编排被广泛用于拆分复杂任务，但随之而来的是调用链变长、上下文重复传递和调试困难。Anthropic 已在 GitHub 上发布迁移工具包，帮助团队完成改造。对正在做 AI 应用的开发者来说，这条消息的价值在于它给出了一个可验证的简化方向：在模型能力足够时，减少编排层可能同时带来速度和维护成本的改善。"
-            }
-          ]
-        },
-        {
-          "key": "tech",
-          "name": "科技突破",
-          "items": [
-            {
-              "title": "Moderna and Merck say their mRNA cancer vaccine cut death, recurrence by 42%",
-              "url": "https://arstechnica.com/health/2026/10/personalized-mrna-cancer-vaccine-cut-melanoma-death-recurrence-by-42/",
-              "source": "Ars Technica",
-              "summary": "Moderna 和 Merck 表示，他们的 mRNA 癌症疫苗使死亡和复发减少了 42%。两家公司在今天公布了顶线结果，而此前已经报告该试验成功。所谓顶线结果，一般指试验主要结果的初步汇总，后续还需要更完整的数据来确认。背景是，这款疫苗走的是 mRNA 癌症疫苗路线，由 Moderna 和 Merck 合作推进；此前试验成功已经让外界关注，现在公布的 42% 降幅进一步给出了具体效果数字。若这一结果在完整数据中得到验证，它可能改变癌症治疗对 mRNA 技术的预期：mRNA 不再只是疫苗平台的概念，而可能成为降低癌症死亡和复发风险的工具。对行业来说，这意味着相关研发和投资可能加速；对读者来说，则是一个需要继续跟踪、但尚未成为定论的医学进展。"
-            },
-            {
-              "title": "A 1,000-mile cloud on Mars may reveal physics never seen in nature",
-              "url": "https://arstechnica.com/science/2026/10/a-1000-mile-cloud-on-mars-may-reveal-physics-never-seen-in-nature/",
-              "source": "Ars Technica",
-              "summary": "Ars Technica 报道，火星上一条长达 1,000 英里的云可能揭示自然界从未见过的物理过程。一项新模型提出，火星可能存在此前从未被直接观测到的成冰物理机制。这条云的长度达到 1,000 英里，说明其规模很大；而新模型把它的形成与火星大气中的冰形成过程联系起来。背景是，火星大气和温度条件与地球差异很大，云和冰如何形成一直是行星科学关注的问题。此前人类没有在自然界中直接观测到模型所描述的这类成冰物理，因此它目前仍属于模型推测，而非确认发现。若后续观测能够验证，它将扩展人类对冰形成物理的认知，也可能帮助理解火星及其他行星大气中的云和冰云。"
-            }
-          ]
-        },
-        {
-          "key": "us",
-          "name": "美股行情",
-          "items": [
-            {
-              "title": "Meta announces $95 billion stock offering to fund AI expansion",
-              "url": "https://www.cnbc.com/2026/10/26/meta-stock-offering-ai.html",
-              "source": "CNBC",
-              "summary": "Meta 宣布计划通过股票发行筹集 950 亿美元，用于资助人工智能基础设施以及「超级智能」方向的投入。据 CNBC 报道，英伟达、AMD 和博通可能认购其中最多 50 亿美元的股份。这一融资规模在科技公司中属于罕见量级。背景是各大科技公司正为 AI 数据中心和算力建设投入巨额资本开支，融资方式也从主要依靠自有现金流，扩展到股权和债务市场。值得关注的有两点：一是芯片厂商以认购股份的方式参与下游客户的融资，使 AI 产业链上下游的资金关系更加紧密；二是近千亿美元量级的股票供给，可能对市场资金面以及 Meta 自身股价形成压力。"
-            },
-            {
-              "title": "Neocloud stocks fall as Elon Musk says more than 200 of them face 'guppy-level death'",
-              "url": "https://www.cnbc.com/2026/10/26/neocloud-stocks-today-coreweave-nebius-iren-elon-musk.html",
-              "source": "CNBC",
-              "summary": "与 AI 算力租赁相关的「新云」（neocloud）公司股价下跌，原因是马斯克公开表示，这类公司中有超过 200 家将面临「孔雀鱼级别的死亡」。报道称，投资者此前已经在质疑这些公司依靠债务推动的扩张模式，以及大规模 AI 基础设施建设的长期回报能否兑现。背景方面，马斯克旗下 SpaceX 刚刚完成一笔 400 亿美元的债务交易，他随后表示，贷款方对业务不够多元的竞争对手不会同样慷慨。值得关注的是，neocloud 是这一轮 AI 基建热潮中杠杆率较高的环节，其股价对融资环境和行业言论高度敏感，若融资条件收紧，相关公司的扩张节奏乃至整个 AI 算力供应链都可能受到影响。"
-            },
-            {
-              "title": "Verizon’s stock rises as subscriber surge impresses Wall Street",
-              "url": "https://www.marketwatch.com/story/verizons-stock-rises-as-subscriber-surge-impresses-wall-street-2be3ef2c?mod=mw_rss_topstories",
-              "source": "MarketWatch",
-              "summary": "Verizon 股价上涨，原因是其一项关键用户增长指标的表现远超华尔街预期。据 MarketWatch 报道，Verizon 在这项衡量用户增长的指标上，表现是分析师预期的两倍以上，这一数据推动其股价走高。背景方面，美国电信运营商市场长期处于竞争激烈、用户增长空间有限的状态，投资者通常把用户净增数据视为判断运营商竞争力的核心指标之一，因此明显超出预期的表现容易带来股价的正面反应。值得关注的是，Verizon 是美股大盘的权重股之一，其股价变动对道指等指数有一定影响；同时电信股通常被视为防御性板块，其用户数据也在一定程度上反映美国消费者的支出状况。摘要未披露具体的用户增长数字。"
-            }
-          ]
-        },
-        {
-          "key": "world",
-          "name": "时政",
-          "items": [
-            {
-              "title": "Trump says he'll soon decide whether to ‘make a deal’ with Iran or ‘finish it off'",
-              "url": "https://www.cnbc.com/2026/10/26/us-iran-war-hormuz.html",
-              "source": "CNBC World",
-              "summary": "中东局势同时出现升级与缓和两条线索。沙特方面称拦截了来自伊朗支持的胡塞武装的导弹和无人机，胡塞武装则宣称袭击了机场和能源设施，地区供应风险上升。与此同时，沙特国防大臣前往伊朗，就缓和冲突展开会谈，受此影响油价下跌——投资者在权衡能源基础设施再遭袭击的风险，与高油价可能侵蚀需求之间做取舍。美国总统特朗普表示，他将很快决定是与伊朗「达成协议」还是「彻底解决」，并称正在权衡谈判与重启军事行动两种选项。这一表态出现在中东紧张局势持续升温的背景下。对市场而言，关键变量是沙特能源设施及地区供应的安全：一旦冲突扩大，油价与全球通胀预期都会受到直接冲击，进而影响各国央行的利率路径和风险资产定价。"
             }
           ]
         }
