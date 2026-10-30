@@ -355,85 +355,12 @@ select.inp{
 .welcome p:last-of-type{margin-bottom:10px}
 .welcome button{padding:3px 12px;font-size:12px}
 
-.news-days{display:flex;gap:6px;margin:14px 0 16px;flex-wrap:wrap}
-.news-days button{
-  background:var(--card);border:2px solid var(--ink);box-shadow:2px 2px 0 0 var(--shadow);
-  padding:4px 11px;font-family:var(--mono);font-size:12px;color:var(--ink2);
-  transition:background-color .18s ease,color .18s ease;
-}
-.news-days button:hover{background:var(--band)}
-.news-days button:active{transform:translate(2px,2px);box-shadow:none;transition:transform 0s}
-.news-days button.on{background:var(--ink);color:var(--card);box-shadow:none;transform:translate(2px,2px)}
-
-.qbar{border:2px solid var(--ink);background:var(--card);box-shadow:3px 3px 0 0 var(--shadow);margin-bottom:18px}
-.qrow{display:flex;flex-wrap:wrap}
-.qi{flex:1 1 150px;padding:11px 14px;border-right:2px solid var(--line)}
-.qi:last-child{border-right:0}
-.qi .qn{font-size:12px;color:var(--ink2);display:block;letter-spacing:1px}
-.qi .qv{display:flex;align-items:baseline;gap:8px;margin-top:2px}
-.qi .qp{font-family:var(--mono);font-size:24px;line-height:1.15}
-.qi .qc{font-family:var(--mono);font-size:12px}
-.up{color:#bf4a32}
-.down{color:#3f7d5a}
-.qfoot{padding:6px 14px;border-top:2px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--ink3)}
-.qfail{padding:14px;font-size:12px;color:var(--brick)}
-
-.qi.vix{flex:0 1 160px;border-right:0}
-.qi.vix .qp{font-size:22px}
-.vtag{
-  display:inline-block;margin-top:5px;padding:1px 7px;
-  font-family:var(--mono);font-size:12px;letter-spacing:1px;
-  border:2px solid currentColor;
-}
-.vtag.calm{color:var(--olive)}
-.vtag.normal{color:var(--olive)}
-.vtag.anxious{color:var(--orange-d)}
-.vtag.fear{color:var(--brick)}
-.vtag.panic{color:var(--brick);background:var(--brick);color:var(--card)}
-
-.mview{
-  border:2px solid var(--ink);background:var(--card);
-  box-shadow:3px 3px 0 0 var(--shadow);margin-bottom:18px;padding:12px 14px;
-}
-.mview-h{
-  font-family:var(--mono);font-size:12px;letter-spacing:2px;
-  color:var(--orange-d);margin-bottom:8px;display:flex;align-items:center;gap:8px;
-}
-.mview-h:after{content:"";flex:1;height:1px;background:var(--line)}
-.mview-b{font-size:12px;line-height:1.9;color:var(--ink2);text-indent:2em}
-
-.nsec{margin-bottom:20px}
-.nsec-t{
-  font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--ink3);
-  margin-bottom:9px;display:flex;align-items:center;gap:8px;
-}
-.nsec-t:after{content:"";flex:1;height:1px;background:var(--line)}
-.nitem{
-  display:block;padding:10px 12px;margin-bottom:8px;text-decoration:none;color:inherit;
-  background:var(--card);border:2px solid var(--ink);box-shadow:3px 3px 0 0 var(--shadow);
-  transition:background-color .18s ease,transform .18s ease;
-}
-.nitem:hover{background:var(--band);transform:translate(-1px,-1px);box-shadow:4px 4px 0 0 var(--shadow)}
-.nitem:active{transform:translate(3px,3px);box-shadow:none;transition:transform 0s}
-.nitem .nt{font-size:12px;line-height:1.65;margin-bottom:3px;word-break:break-word}
-.nitem .ns{font-size:12px;color:var(--ink2);line-height:1.7;word-break:break-word}
-.nitem .nsrc{font-family:var(--mono);font-size:12px;color:var(--ink3);margin-top:5px}
-.hotrow{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
-.hotrow span{
-  font-family:var(--mono);font-size:12px;padding:3px 8px;
-  border:2px solid var(--brick);color:var(--brick);background:var(--card);
-}
-.news-tip{
-  padding:10px 13px;margin-bottom:14px;font-size:12px;color:var(--ink2);
-  border:2px dashed var(--line2);line-height:1.7;
-}
-
 @media(max-width:900px){
   body{overflow:auto;overflow-x:hidden;font-family:var(--sans);font-size:13px}
   .app{display:flex;flex-direction:column;height:auto;min-height:calc(100vh - 7px)}
   .main{order:1;overflow:visible;padding:16px 14px 24px}
   .side{order:2;border-left:0;border-top:2px solid var(--ink);padding:16px 14px 22px}
-  .rail{order:3;display:grid;grid-template-columns:repeat(6,1fr);
+  .rail{order:3;display:grid;grid-template-columns:repeat(5,1fr);
     height:58px;border-right:0;border-top:2px solid var(--ink);padding:0;
     position:sticky;bottom:0;z-index:50;overflow:visible}
   .logo,.rail-sp,.nav-btn .num{display:none}
@@ -563,17 +490,6 @@ select.inp{
       <div id="gskill"></div>
     </section>
 
-    <section class="view" id="v-news" hidden>
-      <div class="hd">
-        <div><h1>每日新闻</h1><div class="sub" id="n-sub">每天 06:00 自动更新</div></div>
-        <div class="act">
-          <button class="px-btn" data-act="reload-news"><span class="ic" data-ic="download"></span>刷新</button>
-        </div>
-      </div>
-      <div class="rule"></div>
-      <div class="news-days" id="n-days"></div>
-      <div id="n-body"></div>
-    </section>
   </div>
 
   <aside class="side">
@@ -664,8 +580,6 @@ function seed(){
 }
 
 let DB;
-let NEWS = null;
-let newsDay = 0;
 
 function idbOpen(){
   return new Promise((res,rej)=>{
@@ -706,7 +620,6 @@ function boot(){
   if(raw){ try{ DB=JSON.parse(raw); }catch(e){ DB=null; } }
   if(!DB || !DB.projects) DB=seed();
   try{ localStorage.setItem(KEY,JSON.stringify(DB)); }catch(e){}
-  try{ NEWS=JSON.parse(localStorage.getItem('workbench.news')||'null'); }catch(e){ NEWS=null; }
   renderAll();
 
   // 首次打开（本地没有任何数据）时给一段说明，关掉后不再出现
@@ -746,7 +659,6 @@ const NAV=[
   {k:'ddl',nm:'期限',ic:'calendar'},
   {k:'arsenal',nm:'弹药',ic:'box'},
   {k:'growth',nm:'成长',ic:'chart'},
-  {k:'news',nm:'新闻',ic:'note'}
 ];
 let view='desk';
 (function(){
@@ -1002,134 +914,6 @@ function renderGrowth(){
   });
 }
 
-function fmtStamp(s){
-  if(!s) return '';
-  const m=String(s).match(/(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2})/);
-  if(m) return m[2]+'-'+m[3]+' '+m[4]+':'+m[5];
-  return String(s).slice(0,16);
-}
-function newsFail(msg){
-  document.getElementById('n-sub').textContent='数据加载失败';
-  document.getElementById('n-days').innerHTML='';
-  const isFile=location.protocol==='file:';
-  document.getElementById('n-body').innerHTML=
-    '<div class="news-tip">新闻数据读取失败：'+esc(msg||'')+
-    (isFile
-      ? '<br><br>本地双击打开时，浏览器不允许网页读取同目录的数据文件，这是安全限制。<br>请改用线上地址访问，新闻就能正常显示。<br>其余五个功能不受影响，本地照常可用。'
-      : '<br>可能还没跑过抓取任务，或者网络不通。<br>其余功能不受影响，可以正常使用。')+
-    '</div>';
-}
-let newsLastFetch=0;
-let newsFetching=false;
-
-async function loadNews(force){
-  const now=Date.now();
-  // 先把已有数据画出来，避免白屏
-  if(NEWS) renderNews();
-  if(newsFetching) return;
-  // 2 分钟内不重复请求，但每次打开页面总会拉一次
-  if(!force && newsLastFetch && now-newsLastFetch<120000) return;
-
-  newsFetching=true;
-  try{
-    const r=await fetch('./data/news.json?t='+now,{cache:'no-store'});
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    const j=await r.json();
-    if(!j.days||!j.days.length) throw new Error('数据为空');
-    NEWS=j;newsDay=0;
-    try{ localStorage.setItem('workbench.news',JSON.stringify(j)); }catch(e){}
-    newsLastFetch=now;
-    renderNews();
-  }catch(e){
-    newsLastFetch=now;
-    if(NEWS) renderNews('缓存');
-    else if(location.protocol==='file:') newsFail('本地双击打开时浏览器禁止读取数据文件');
-    else newsFail(e.message);
-  }finally{
-    newsFetching=false;
-  }
-}
-function renderNews(tag){
-  if(!NEWS||!NEWS.days||!NEWS.days.length){ newsFail('暂无数据'); return; }
-  const days=NEWS.days;
-  if(newsDay>=days.length) newsDay=0;
-  const d=days[newsDay];
-
-  document.getElementById('n-sub').textContent=
-    (tag?'（'+tag+'）':'')+'更新于 '+(NEWS.generatedAt?fmtStamp(NEWS.generatedAt):'—');
-
-  document.getElementById('n-days').innerHTML=days.map((x,i)=>{
-    const lab=i===0?'今天':(i===1?'昨天':x.date.slice(5));
-    return '<button class="'+(i===newsDay?'on':'')+'" data-nday="'+i+'">'+lab+' '+x.date.slice(5)+'</button>';
-  }).join('');
-
-  let html='';
-  if(d.quote&&d.quote.items&&d.quote.items.length){
-    html+='<div class="qbar"><div class="qrow">';
-    d.quote.items.forEach(q=>{
-      const cls=q.pct>0?'up':(q.pct<0?'down':'');
-      const sign=q.pct>0?'+':'';
-      const px=Number(q.price).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
-      html+='<div class="qi"><span class="qn">'+esc(q.name)+'</span><div class="qv">'+
-        '<span class="qp">'+px+'</span><span class="qc '+cls+'">'+sign+Number(q.pct).toFixed(2)+'%</span>'+
-        '</div></div>';
-    });
-    const v=d.quote.vix;
-    if(v){
-      const vsign=v.pct>0?'+':'';
-      const lv=(v.level&&v.level.k)||'normal';
-      const lt=(v.level&&v.level.t)||'';
-      html+='<div class="qi vix"><span class="qn">恐慌指数 VIX</span><div class="qv">'+
-        '<span class="qp">'+Number(v.close).toFixed(2)+'</span>'+
-        '<span class="qc">'+vsign+Number(v.pct).toFixed(2)+'%</span></div>'+
-        '<span class="vtag '+lv+'">'+esc(lt)+'</span></div>';
-    }
-    html+='</div><div class="qfoot">收盘 '+fmtStamp(d.quote.updated)+
-      (d.quote.note?' · '+d.quote.note:'')+
-      (v?' · VIX 截至 '+esc(v.date||d.quote.updated):'')+'</div></div>';
-  }else{
-    html+='<div class="qbar"><div class="qfail">行情获取失败，这里不显示数字（不会拿昨天数据充数）</div></div>';
-  }
-
-  if(d.marketView){
-    html+='<div class="mview"><div class="mview-h">AI 观点</div>'+
-      '<div class="mview-b">'+esc(d.marketView)+'</div></div>';
-  }
-
-  if(d.hotStocks&&d.hotStocks.length){
-    html+='<div class="hotrow">'+d.hotStocks.map(s=>
-      '<span>'+esc(s.name)+' '+(s.pct>0?'+':'')+Number(s.pct).toFixed(2)+'%</span>').join('')+'</div>';
-  }
-
-  (d.sections||[]).forEach(sec=>{
-    html+='<div class="nsec"><div class="nsec-t">'+esc(sec.name)+'</div>';
-    if(!sec.items||!sec.items.length){
-      html+='<div class="news-tip">今天没有值得推的'+esc(sec.name)+'。</div>';
-    }else{
-      sec.items.forEach(it=>{
-        html+='<a class="nitem" href="'+esc(it.url)+'" target="_blank" rel="noopener noreferrer">'+
-          '<div class="nt">'+esc(it.title)+'</div>'+
-          (it.summary?'<div class="ns">'+esc(it.summary)+'</div>':'')+
-          '<div class="nsrc">'+esc(it.source||'')+' ↗</div></a>';
-      });
-    }
-    html+='</div>';
-  });
-
-  if(NEWS.status==='fallback'){
-    html+='<div class="news-tip">AI 暂时不可用，以上只有标题和链接，没有摘要。</div>';
-  }
-  if(NEWS.notes&&NEWS.notes.length){
-    html+='<div class="news-tip" style="font-family:var(--mono);font-size:12px">'+
-      NEWS.notes.slice(0,8).map(n=>'· '+esc(n)).join('<br>')+'</div>';
-  }
-
-  document.getElementById('n-body').innerHTML=html;
-  document.querySelectorAll('[data-nday]').forEach(b=>{
-    b.onclick=()=>{ newsDay=Number(b.dataset.nday); renderNews(tag); };
-  });
-}
-
 function streak(){
   let n=0;
   for(let i=0;i<400;i++){
@@ -1198,7 +982,6 @@ function renderAll(){
   if(view==='ddl')renderDDL();
   if(view==='arsenal')renderArsenal();
   if(view==='growth')renderGrowth();
-  if(view==='news')loadNews();
   renderSide();
 }
 
@@ -1332,7 +1115,6 @@ document.addEventListener('click',e=>{
     if(a==='close-modal')closeModal();
     if(a==='export')doExport();
     if(a==='import')document.getElementById('file-in').click();
-    if(a==='reload-news'){toast('正在拉取…');loadNews(true);}
     return;
   }
   if(e.target.id==='modal')closeModal();
